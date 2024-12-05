@@ -1,0 +1,280 @@
+
+start:
+
+;goto text_menu
+
+goto graphics_menu
+
+i01_go:
+bcdw SetTextVideoMode
+getkey
+show console
+print "\n"
+print "Boot from hard disk...\n"
+bcdw Boot C:\
+getkey
+goto ixx_go_err
+
+i02_go:
+bcdw SetTextVideoMode
+getkey
+show console
+print "\n"
+print "Bart's Preinstalled Environment...\n"
+bcdw Boot \WNPE\setupldr.bin
+getkey
+goto ixx_go_err
+
+i03_go:
+bcdw SetTextVideoMode
+getkey
+show console
+print "\n"
+print "Volkov Commander...\n"
+bcdw Boot \bcdw\bcdw2dos.ima \vc\vc.com
+getkey
+goto ixx_go_err
+
+i04_go:
+bcdw SetTextVideoMode
+getkey
+show console
+print "\n"
+print "Microsoft Windows XP Setup...\n"
+bcdw Boot \I386\setupldr.bin
+getkey
+goto ixx_go_err
+
+i05_go:
+bcdw SetTextVideoMode
+getkey
+show console
+print "\n"
+print "Microsoft Windows 98 Setup...\n"
+bcdw Boot \bcdw\bcdw2dos.ima \win9x\setup.exe
+getkey
+goto ixx_go_err
+
+i06_go:
+bcdw SetTextVideoMode
+getkey
+show console
+print "\n"
+print "Linux...\n"
+bcdw Boot /linux/isolinux.bin /linux/kernel ramdisk_size=16384 initrd=/linux/rescue.gz root=/dev/ram0 rw
+getkey
+goto ixx_go_err
+
+i07_go:
+bcdw SetTextVideoMode
+getkey
+show console
+print "\n"
+print "Acronis TrueImage Server...\n"
+bcdw Boot \acronis\tis.iso
+getkey
+goto ixx_go_err
+
+i08_go:
+bcdw SetTextVideoMode
+getkey
+show console
+print "\n"
+print "Power Off...\n"
+bcdw PowerOff
+getkey
+goto ixx_go_err
+
+ixx_go_err:
+print "Error. Code: <unsupported>\n"
+
+ixx_finish:
+print "Press any key to return...\n"
+getkey
+goto start
+
+text_menu:
+
+; 80x50 text mode
+; bcdw SetTextVideoMode font.f08
+; getkey
+; onkey 0x0000 goto t_mode_ok
+; 80x25 text mode
+bcdw SetTextVideoMode
+getkey
+onkey 0x0000 goto t_mode_ok
+
+print "Fatal error 1.\n"
+print "Press any key to exit...\n"
+getkey
+
+goto quit
+
+t_mode_ok:
+
+bcdw Dialog textmode.ini
+getkey
+onkey 0x0001 goto i01_go
+onkey 0x0002 goto i02_go
+onkey 0x0003 goto i03_go
+onkey 0x0004 goto i04_go
+onkey 0x0005 goto i05_go
+onkey 0x0006 goto i06_go
+onkey 0x0007 goto i07_go
+onkey 0x0008 goto i08_go
+goto quit
+
+graphics_menu:
+
+; SVGA modes
+bcdw SetGraphicsVideoMode 640 480 32
+getkey
+onkey 0x0000 goto g_mode_ok
+bcdw SetGraphicsVideoMode 640 480 24
+getkey
+onkey 0x0000 goto g_mode_ok
+bcdw SetGraphicsVideoMode 640 480 16
+getkey
+onkey 0x0000 goto g_mode_ok
+bcdw SetGraphicsVideoMode 640 480 15
+getkey
+onkey 0x0000 goto g_mode_ok
+; bcdw SetGraphicsVideoMode 640 480 8
+; getkey
+; onkey 0x0000 goto g_mode_ok
+
+; VGA modes
+bcdw SetGraphicsVideoMode 640 480 4
+getkey
+onkey 0x0000 goto g_mode_ok
+; bcdw SetGraphicsVideoMode 640 480 1
+; getkey
+; onkey 0x0000 goto g_mode_ok
+
+; EGA modes
+; bcdw SetGraphicsVideoMode 640 320 4
+; getkey
+; onkey 0x0000 goto g_mode_ok
+; bcdw SetGraphicsVideoMode 640 320 1
+; getkey
+; onkey 0x0000 goto g_mode_ok
+; bcdw SetGraphicsVideoMode 640 200 4
+; getkey
+; onkey 0x0000 goto g_mode_ok
+; bcdw SetGraphicsVideoMode 320 200 4
+; getkey
+; onkey 0x0000 goto g_mode_ok
+
+; any graphics mode (1x1 monochrome or better)
+; bcdw SetGraphicsVideoMode 1 1 1
+; getkey
+; onkey 0x0000 goto g_mode_ok
+
+goto text_menu
+
+g_mode_ok:
+
+bcdw ShowGif item_01.gif 0 0
+bcdw ShowGif item_02.gif 0 55
+bcdw ShowGif item_03.gif 0 110
+bcdw ShowGif item_04.gif 0 165
+bcdw ShowGif item_05.gif 0 220
+bcdw ShowGif item_06.gif 0 275
+bcdw ShowGif item_07.gif 0 330
+bcdw ShowGif item_08.gif 0 385
+
+; 30 seconds timeout
+bcdw ShowGif item_a.gif 0 0 30
+getkey
+onkey 0x0000 goto i01_go
+goto i01_autorun
+
+i01_active:
+bcdw ShowGif item_a.gif 0 0 WaitKey
+getkey
+i01_autorun:
+bcdw ShowGif item_p.gif 0 0
+onkey up goto i08_active
+onkey down goto i02_active
+onkey enter goto i01_go
+onkey esc goto quit
+goto i01_active
+
+i02_active:
+bcdw ShowGif item_a.gif 0 55 WaitKey
+getkey
+bcdw ShowGif item_p.gif 0 55
+onkey up goto i01_active
+onkey down goto i03_active
+onkey enter goto i02_go
+onkey esc goto quit
+goto i02_active
+
+i03_active:
+bcdw ShowGif item_a.gif 0 110 WaitKey
+getkey
+bcdw ShowGif item_p.gif 0 110
+onkey up goto i02_active
+onkey down goto i04_active
+onkey enter goto i03_go
+onkey esc goto quit
+goto i03_active
+
+i04_active:
+bcdw ShowGif item_a.gif 0 165 WaitKey
+getkey
+bcdw ShowGif item_p.gif 0 165
+onkey up goto i03_active
+onkey down goto i05_active
+onkey enter goto i04_go
+onkey esc goto quit
+goto i04_active
+
+i05_active:
+bcdw ShowGif item_a.gif 0 220 WaitKey
+getkey
+bcdw ShowGif item_p.gif 0 220
+onkey up goto i04_active
+onkey down goto i06_active
+onkey enter goto i05_go
+onkey esc goto quit
+goto i05_active
+
+i06_active:
+bcdw ShowGif item_a.gif 0 275 WaitKey
+getkey
+bcdw ShowGif item_p.gif 0 275
+onkey up goto i05_active
+onkey down goto i07_active
+onkey enter goto i06_go
+onkey esc goto quit
+goto i06_active
+
+i07_active:
+bcdw ShowGif item_a.gif 0 330 WaitKey
+getkey
+bcdw ShowGif item_p.gif 0 330
+onkey up goto i06_active
+onkey down goto i08_active
+onkey enter goto i07_go
+onkey esc goto quit
+goto i07_active
+
+i08_active:
+bcdw ShowGif item_a.gif 0 385 WaitKey
+getkey
+bcdw ShowGif item_p.gif 0 385
+onkey up goto i07_active
+onkey down goto i01_active
+onkey enter goto i08_go
+onkey esc goto quit
+goto i08_active
+
+quit:
+bcdw SetTextVideoMode
+getkey
+show console
+print "\n"
+bcdw Boot C:\
+bcdw Reboot
+end:

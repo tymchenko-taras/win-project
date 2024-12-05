@@ -1,0 +1,19 @@
+echo Checking for BCDW...
+bcdw CheckForBCDW
+if errorlevel 1 goto NO_BCDW
+
+echo Finding bootable CD...
+bcdw FindBootableCDLetter
+if errorlevel 1 goto NO_BCDW_CDROM
+
+echo Getting bootimage command line...
+bcdw GetBootImageCommandLine
+if errorlevel 1 goto NO_BCDW_CL
+
+echo Executing bootimage command line...
+%BCDW_CDROM%:
+call %BCDW_CL%
+
+:NO_BCDW_CL
+:NO_BCDW_CDROM
+:NO_BCDW

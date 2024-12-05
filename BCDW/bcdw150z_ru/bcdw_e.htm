@@ -1,0 +1,2110 @@
+<html>
+<head>
+  <title>Bootable CD Utilities by reanimatolog - Bootable CD Wizard -
+Freeware Multiple-Image Bootable CD Manager</title>
+<meta http-equiv="Content-Language" content="en">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+  <style><!--
+body {font-family:Monospace;}
+--></style>
+  <style>
+#bn {display:block;}
+#bt {display:block;}
+  </style>
+</head>
+<body>
+<table cellpadding="5" cellspacing="0" width="765" bgcolor="#f0f0f0"
+ align="center">
+  <tbody>
+    <tr>
+      <td>
+        <table align="center" bgcolor=#F0F0F0 width="750px" cellspacing=0 cellpadding=5>
+          <tr>
+            <td align="left"><a href="http://bootcd.narod.ru/index_e.htm">http://bootcd.narod.ru</a>
+            <td align="right">
+
+        </table>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>Bootable CD
+Wizard v1.50Z - Freeware Multiple-Image Bootable CD Manager</b></font> </td>
+    </tr>
+    <tr>
+      <td>
+      <ul>
+        <font size="2"> <li><a href="#whatisit">What's this?</a> </li>
+        <li><a href="#whatinpackage">What's in the zip?</a> </li>
+        <li><a href="#writecd">How to create a multiboot CD with BCDW?</a>
+        </li>
+        <li><a href="#configs">Customize BCDW</a>
+          <ul>
+            <li><a href="#ini_main">The configuration file <b>\BCDW\bcdw.ini</b></a>
+              <ul>
+                <li><a href="#ini_main_example">Example of <b>\BCDW\bcdw.ini</b></a>
+                </li>
+                <li><a href="#ini_main_keywords">Keywords in <b>\BCDW\bcdw.ini</b></a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#ini_menu">The configuration file <b>\BootCat.Ini</b></a>
+              <ul>
+                <li><a href="#ini_menu_example">Example of <b>\BootCat.Ini</b></a>
+                </li>
+                <li><a href="#ini_menu_bc">List of boot options in <b>\BootCat.Ini</b></a>
+                  <ul>
+                    <li><a href="#ini_menu_bc_submenus">Format of
+entries that lead to a submenu</a> </li>
+                    <li><a href="#ini_menu_bc_images">Format of entries
+for boot options</a> </li>
+                    <li><a href="#ini_menu_bc_commands">Internal
+operating commands BCDW</a> </li>
+                    <li><a href="#ini_menu_bc_parameters">Parameters
+for boot images</a> </li>
+                  </ul>
+                </li>
+                <li><a href="#ini_menu_ui">Appearance settings of the
+interface windows in <b>\BootCat.Ini</b></a> </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#copycd">How to add a program from a bootable CD
+to a CD with BCDW?</a> </li>
+        <li><a href="#copyfd1x">How to add a program from a bootable
+floppy to a CD with BCDW?</a> </li>
+        <li><a href="#copyfd2x">How to add a program from two bootable
+floppies to a CD with BCDW?</a> </li>
+        <li><a href="#wntsetup">How to add a setup routine of<b>
+Microsoft Windows XP/2000/NT</b> to a CD with BCDW?</a> </li>
+        <li><a href="#winpe">How to add <b>Microsoft Windows PE</b> to
+a CD with BCDW?</a> </li>
+        <li><a href="#erdc">How to add <b>ERD Commamder</b> to a CD
+with BCDW?</a> </li>
+        <li><a href="#oobc">How to add <b>O&amp;O BlueCon</b> to a CD
+with BCDW?</a> </li>
+        <li><a href="#acronis">How to add the <b>Acronis</b> programs
+to a CD with BCDW?</a> </li>
+        <li><a href="#dosstart">How to add a DOS program to a CD with
+BCDW?</a> </li>
+        <li><a href="#w9xsetup">How to add a setup routine of <b>Microsoft
+Windows 9x/Me</b> to a CD with BCDW?</a> </li>
+        <li><a href="#vc">How to add <b>Volkov Commander</b> to a CD
+with BCDW?</a> </li>
+        <li><a href="#dos4bcdw">How to create the special boot image <b>dos4bcdw.ima</b>?</a>
+        </li>
+        <li><a href="#imamake">How to create an image of a floppy or
+a logical disk?</a> </li>
+        <li><a href="#customfd">How to create a boot image of custom
+size<b>
+(e.g. more than 2.88Mb</b>)?</a> </li>
+        <li><a href="#isolinux">Is it possible to use <b>ISOLinux</b>
+with BCDW?</a> </li>
+        <li><a href="#cdshell">Is it possible to use CD Shell with BCDW?</a>
+        </li>
+        <li><a href="#bootscriptor">Is it possible to use <b>BootScriptor</b>
+with BCDW?</a> </li>
+        <li><a href="#diskemu">Is it possible to use <b>diskem1x.bin</b>
+with BCDW?</a> </li>
+        <li><a href="#bootfix">"Press any key to boot from CD..."</a> </li>
+        <li><a href="#skipcd">How to skip BCDW on startup</a> </li>
+        </font>
+      </ul>
+      <font size="2"> <a name="whatisit"> </a></font></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>What's this?</b></font>
+      </td>
+    </tr>
+    <tr>
+      <td>BCDW is a boot manager for CD-ROM.
+      <ul>
+        <li>It creates multiboot CDs for computers that normally do not
+have the ability to start a bootmenu from the CD. </li>
+        <li>It creates a hierarchical bootmenu interface with
+customized apperarance. </li>
+        <li>It supports the extended <a href="#ini_menu_bc_images">formats</a>
+of boot images (<a href="http://bootcd.narod.ru/images_e.htm">example</a>). </li>
+      </ul>
+<a name="whatinpackage"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<span
+ style="font-weight: bold;">What's in the zip</span><b>?</b></font> </td>
+    </tr>
+    <tr>
+      <td>
+      <table>
+        <tbody>
+          <tr>
+            <td valign="top"><b>bcdwboot.bin</b></td>
+            <td>&nbsp;</td>
+            <td>The boot image file for the CD </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>BCDW\bcdw.bin</b></td>
+            <td>&nbsp;</td>
+            <td>The bootmanager </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>BCDW\bcdw*.ini</b></td>
+            <td>&nbsp;</td>
+            <td>Sample configuration files for the bootmanager </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>BCDW\FONTS\</b></td>
+            <td>&nbsp;</td>
+            <td>The folder with localized fonts </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>BCDW\CHARSETS\</b></td>
+            <td>&nbsp;</td>
+            <td>Descriptions of localized Charsets </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>BCDW\logo.gif</b></td>
+            <td>&nbsp;</td>
+            <td>Example of the graphic prompt </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>Boot*.Ini</b></td>
+            <td>&nbsp;</td>
+            <td>Examples of settings for the bootmenu </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>initest.com</b></td>
+            <td>&nbsp;</td>
+            <td>The program to test a configuration before burning the
+CD </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>DOS4BCDW\</b></td>
+            <td>&nbsp;</td>
+            <td>The folder with the files necessary to create the
+special boot image <b>dos4bcdw.ima</b> (<a href="#dos4bcdw">how to do
+this?</a>) </td>
+          </tr>
+        </tbody>
+      </table>
+      <a name="writecd"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>How to create a
+multiboot CD with BCDW?</b></font> </td>
+    </tr>
+    <tr>
+      <td>
+      <ul>
+        <li>Create a folder on your harddisk for the files of your
+multiboot CD (e.g. <b>C:\MyBootCD\</b>) </li>
+        <li>Unpack the ZIP-archive with BCDW to this folder </li>
+        <li>Add your files to this folder (boot images etc.) </li>
+        <li>Using Windows Notepad open the file <b>C:\MyBootCD\BootCat.Ini</b>
+        </li>
+        <li>Edit the boot choices according to your files (add/remove
+the necessary entries) </li>
+        <li>Start your CD writing program </li>
+        <li>Choose the project for bootable and use the following
+settings:<br>
+Boot image: <b>C:\MyBootCD\bcdwboot.bin</b><br>
+Emulation type: No emulation<br>
+Loading address: 07c0<br>
+Number of sectors to load: 4<br>
+(how to do it using <a href="http://bootcd.narod.ru/nenero_e.htm">Nero</a>, <a
+ href="http://bootcd.narod.ru/necdrwin_e.htm">CDRWin</a>, <a href="http://bootcd.narod.ru/neecdc_e.htm">Easy CD Creator</a>,
+          <a href="http://bootcd.narod.ru/neinstcd_e.htm">Instant CD+DVD</a>, <a
+ href="http://bootcd.narod.ru/newinoncd_e.htm">WinOnCD</a>, <a href="http://bootcd.narod.ru/necdimage_e.htm">CDImage</a>
+or <a href="http://bootcd.narod.ru/nemkisofs_e.htm">mkisofs</a>) </li>
+        <li>Add the contents of the folder <b>C:\MyBootCD\ to the
+project</b> </li>
+Burn the disk<br>
+      </ul>
+      </td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>Customize BCDW</b></font>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <ul>
+        <li>BCDW can be customized through two files (create or edit
+existing):
+          <ul>
+            <li><b>\BCDW\bcdw.ini</b> contains the start parameters for
+BCDW </li>
+            <li><b>\BootCat.Ini</b> contains the boot options and the
+appearance settings </li>
+          </ul>
+        </li>
+        <li>Both files are text files and can be created using Windows
+Notepad or any similar editor. </li>
+        <li>The configuration files can be text files DOS/Windows or
+*NIX/Linux. </li>
+        <li>The configuration files have a structure similar to the <b>*.ini</b>/<b>*.inf</b>-files
+of Windows:
+          <ul>
+            <li>The files are divided into sections with the name of
+the section in square brackets at the beginning of each section </li>
+            <li>The lines are of the type "keyword = value", that is
+the way different options can be set </li>
+            <li>Empty lines and lines beginning with ';' (semicolon)
+will be ignored </li>
+          </ul>
+        </li>
+        <li>Remarks:
+          <ol>
+            <li>The current version of BCDW only uses one section <b>[Options]</b>,
+all other sections (if present) will be ignored. Unknown keywords in
+section <b>[Options]</b><span style="font-weight: bold;"> </span>will
+be ignored. </li>
+            <li>In the configuration file <b>\BootCat.Ini</b> the
+space between the beginnig of the file and the first section is used
+for the boot options (see description of <b>\BootCat.Ini</b>) </li>
+          </ol>
+        </li>
+      </ul>
+      <a name="ini_main"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>The configuration
+file \BCDW\bcdw.ini</b></font> </td>
+    </tr>
+    <tr>
+      <td>The configuration file <b>\BCDW\bcdw.ini</b> can contain a
+section <b>[Options]</b> in which four keywords can be used to
+customize. This section <b>[Options]</b> is optional, i.e. the simple <b>\BCDW\bcdw.ini</b>
+would be empty. <a name="ini_main_example"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>Example of
+\BCDW\bcdw.ini.</b></font> </td>
+    </tr>
+    <tr>
+      <td>
+      <table cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td>[Options] </td>
+          </tr>
+          <tr>
+            <td>Password&nbsp;=&nbsp;secret </td>
+          </tr>
+          <tr>
+            <td>Logo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;\BCDW\logo.gif
+            </td>
+          </tr>
+          <tr>
+            <td>Font&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;\BCDW\FONTS\russian.fnt
+            </td>
+          </tr>
+          <tr>
+            <td>CharSet&nbsp;&nbsp;=&nbsp;\BCDW\CHARSETS\cp1251r.cpf </td>
+          </tr>
+          <tr>
+            <td>RootMenu&nbsp;=&nbsp;\BootCat.Ini </td>
+          </tr>
+        </tbody>
+      </table>
+      <a name="ini_main_keywords"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>Keywords in
+\BCDW\bcdw.ini</b></font> </td>
+    </tr>
+    <tr>
+      <td>
+      <table>
+        <tbody>
+          <tr>
+            <td valign="top"><b>Password (or PasswordMD5Hash)</b></td>
+            <td>&nbsp;</td>
+            <td>Sets the password (or MD5 Hash of password) to be entered on start of BCDW.<br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>Logo</b></td>
+            <td>&nbsp;</td>
+            <td> BCDW can display a graphic prompt on startup.<br>
+The keyword <b>Logo</b> tells BCDW the location of a <b>*.gif</b>
+file to load and display as graphic prompt.<br>
+This file can be an animated <b>*.gif</b> file.<br>
+The gif must not be larger than ~500Kb.<br>
+BCDW supports the following video modes for the prompt: 320x200x256,
+640x480x256, 800x600x256, 1024x768x256, 1280x1024x256 è 1600x1200x256
+(nearest will be used).<br>
+If the picture does not fit on the screen it will be aligned and
+truncated.<br>
+If the keyword <b>Logo</b> is left out, there will be no graphic
+prompt.<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>Font</b></td>
+            <td>&nbsp;</td>
+            <td>At the start of a computer, a standard english font
+(cp437) 8x16 is loaded in the video adapter memory .<br>
+BCDW allows another font to be loaded in the video adapter on startup
+(e.g. a font with Russian characters) and a font with a different size
+(the number of lines depends on the heigth of the symbol).<br>
+The keyword <b>Font</b> tells BCDW name and location of a different
+font file to be used on startup.<br>
+The size of the font file can be anything from 1024 bytes (font 8x4 -
+100 lines on the screen) to 8192 bytes (font 8x32 - 12 lines on the
+screen).<br>
+If the keyword <b>Font</b> is left out, BCDW will use the standard
+font of the video adapter.<br>
+            <br>
+The following fonts are included with BCDW:
+            <table>
+              <tbody>
+                <tr>
+                  <td><b>\BCDW\FONTS\russian.fnt</b></td>
+                  <td>&nbsp;</td>
+                  <td>Russian font 8x16 (25 lines on the screen) </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\russian.f32</b></td>
+                  <td>&nbsp;</td>
+                  <td>Russian font 8x32 (12 lines on the screen) </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\russian.f19</b></td>
+                  <td>&nbsp;</td>
+                  <td>Russian font 8x19 (21 lines on the screen) </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\russian.f14</b></td>
+                  <td>&nbsp;</td>
+                  <td>Russian font 8x14 (28 lines on the screen) </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\russian.f12</b></td>
+                  <td>&nbsp;</td>
+                  <td>Russian font 8x12 (33 lines on the screen) </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\russian.f11</b></td>
+                  <td>&nbsp;</td>
+                  <td>Russian font 8x11 (36 lines on the screen) </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\russian.f08</b></td>
+                  <td>&nbsp;</td>
+                  <td>Russian font 8x8 (50 lines on the screen) </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\russian.f06</b></td>
+                  <td>&nbsp;</td>
+                  <td>Russian font 8x6 (66 lines on the screen) </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\russian.f04</b></td>
+                  <td>&nbsp;</td>
+                  <td>Russian font 8x4 (100 lines on the screen) </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\cyrillic.fnt</b></td>
+                  <td>&nbsp;</td>
+                  <td>Cyrillic font 8x16 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\cyrillic.f14</b></td>
+                  <td>&nbsp;</td>
+                  <td>Cyrillic font 8x14 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\cyrillic.f08</b></td>
+                  <td>&nbsp;</td>
+                  <td>Cyrillic font 8x8 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\latin1.fnt</b></td>
+                  <td>&nbsp;</td>
+                  <td>Latin1 font 8x16 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\latin1.f14</b></td>
+                  <td>&nbsp;</td>
+                  <td>Latin1 font 8x14 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\latin1.f08</b></td>
+                  <td>&nbsp;</td>
+                  <td>Latin1 font 8x8 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\latin2.fnt</b></td>
+                  <td>&nbsp;</td>
+                  <td>Latin2 font 8x16 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\latin2.f14</b></td>
+                  <td>&nbsp;</td>
+                  <td>Latin2 font 8x14 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\latin2.f08</b></td>
+                  <td>&nbsp;</td>
+                  <td>Latin2 font 8x8 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\baltic.fnt</b></td>
+                  <td>&nbsp;</td>
+                  <td>Baltic font 8x16 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\baltic.f14</b></td>
+                  <td>&nbsp;</td>
+                  <td>Baltic font 8x14 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\baltic.f08</b></td>
+                  <td>&nbsp;</td>
+                  <td>Baltic font 8x8 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\turkish.fnt</b></td>
+                  <td>&nbsp;</td>
+                  <td>Turkish font 8x16 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\turkish.f14</b></td>
+                  <td>&nbsp;</td>
+                  <td>Turkish font 8x14 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\turkish.f08</b></td>
+                  <td>&nbsp;</td>
+                  <td>Turkish font 8x8 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\arabic.fnt</b></td>
+                  <td>&nbsp;</td>
+                  <td>Arabic font 8x16 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\arabic.f14</b></td>
+                  <td>&nbsp;</td>
+                  <td>Arabic font 8x14 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\arabic.f08</b></td>
+                  <td>&nbsp;</td>
+                  <td>Arabic font 8x8 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\hebrew.fnt</b></td>
+                  <td>&nbsp;</td>
+                  <td>Hebrew font 8x16 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\hebrew.f14</b></td>
+                  <td>&nbsp;</td>
+                  <td>Hebrew font 8x14 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\hebrew.f08</b></td>
+                  <td>&nbsp;</td>
+                  <td>Hebrew font 8x8 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\ibmpc.fnt</b></td>
+                  <td>&nbsp;</td>
+                  <td>Standard (cp437) font IBM PC 8x16 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\ibmpc.f14</b></td>
+                  <td>&nbsp;</td>
+                  <td>Standard (cp437) font IBM PC 8x14 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\FONTS\ibmpc.f08</b></td>
+                  <td>&nbsp;</td>
+                  <td>Standard (cp347) font IBM PC 8x8 </td>
+                </tr>
+              </tbody>
+            </table>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>CharSet</b></td>
+            <td>&nbsp;</td>
+            <td>In the configuration file <b>\BootCat.Ini</b> you can
+use filenames and texts not only in English, but also some other
+languages (e.g. Russian).<br>
+For texts in other languages than English different codings are used by
+different operation systems <br>
+(e.g. the following codings are generally used for Russian: in DOS -
+cp866, in Windows - cp1251, in *NIX/Linux - KOI8-R).<br>
+To be able to correctly interpret filenames and texts (for screen
+resolution, file search on CD etc.) BCDW needs to know which coding you
+used for the configuration file <b>\BootCat.Ini</b>.<br>
+The keyword <b>CharSet</b> tells BCDW name and location of the used
+codefile.<br>
+If the keyword <b>CharSet</b> is left out, BCDW considers all texts
+and names in the file <b>\BootCat.Ini</b> to be only in English.<br>
+            <br>
+The following codefiles are included with BCDW:
+            <table>
+              <tbody>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\cp1251r.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Russian coding Windows </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\cp866.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Russian coding DOS </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\koi8r.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Russian coding *NIX/Linux </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\cp1251c.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Cyrillic coding Windows </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\cp855.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Cyrillic coding DOS </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\iso88595.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Cyrillic coding as in ISO8859-5 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\cp1252.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Latin1 coding Windows </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\cp850.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Latin1 coding DOS </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\iso88591.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Latin1 coding ïî ISO8859-1 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\cp1250.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Latin2 coding Windows </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\cp852.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Latin2 coding DOS </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\iso88592.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Latin2 coding as in ISO8859-2 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\cp1257.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Baltic coding Windows </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\cp775.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Baltic coding DOS </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\iso885913.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Baltic coding as in ISO8859-13 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\cp1254.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Turkish êîäèðîâêà Windows </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\cp857.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Turkish coding DOS </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\iso88599.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Turkish coding as in ISO8859-9 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\cp1256.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Arabic coding Windows </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\cp864.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Arabic coding DOS </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\iso88596.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Arabic coding as in ISO8859-6 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\cp1255.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Hebrew coding Windows </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\cp862.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Hebrew coding DOS </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\iso88598.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Hebrew coding as in ISO8859-8 </td>
+                </tr>
+                <tr>
+                  <td><b>\BCDW\CHARSETS\cp437.cpf</b></td>
+                  <td>&nbsp;</td>
+                  <td>Standard (cp437) coding IBM PC </td>
+                </tr>
+              </tbody>
+            </table>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>RootMenu</b></td>
+            <td>&nbsp;</td>
+            <td>By default, BCDW is looking for the settings of the
+bootloader in a file <b>\BootCat.Ini</b>.<br>
+You can change the name and location of this file (e.g. to <b>\BCDW\BootCat.Ini</b>).<br>
+The keyword <b>RootMenu</b> tells BCDW name and location of this file.<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <a name="ini_menu"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>The configuration
+file \BootCat.Ini</b></font> </td>
+    </tr>
+    <tr>
+      <td>The file <b>\BootCat.Ini</b> (and any other bootloader
+description files)
+has two parts:
+      <ul>
+        <li><a href="#ini_menu_bc">The list of the boot options</a> -
+at
+the beginning of the file before the section <span
+ style="font-weight: bold;">[Options]</span> (or at the end if there
+are no sections present) </li>
+        <li>Optional section <b>[Options]</b> with <a
+ href="#ini_menu_ui">the appearance settings of the user interface</a> </li>
+      </ul>
+      <a name="ini_menu_example"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>Example of
+\BootCat.Ini</b></font> </td>
+    </tr>
+    <tr>
+      <td>
+      <table cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td>; *** The list of bootoptions<br>
+            </td>
+          </tr>
+          <tr>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td>C:\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;
+Boot drive C:&nbsp;&nbsp;&nbsp;; Boot harddisk.^ </td>
+          </tr>
+          <tr>
+            <td>A:\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;
+Boot drive A:&nbsp;&nbsp;&nbsp;; Boot floppy drive.^ </td>
+          </tr>
+          <tr>
+            <td>\BootCat2.Ini&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;
+Submenu
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; Another
+BootCat.Ini^ </td>
+          </tr>
+          <tr>
+            <td>\floppy.ima&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;
+Boot with *.IMA from a floppy image (WinImage) </td>
+          </tr>
+          <tr>
+            <td>\logical.ima&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;
+Boot with *.IMA from an image of a logical drive (WinImage) </td>
+          </tr>
+          <tr>
+            <td>\hdd.img&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;
+Boot an image of a harddisk (DskRead) </td>
+          </tr>
+          <tr>
+            <td>\acronis.wbt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;
+Boot an image with *.WBT (WinISO) </td>
+          </tr>
+          <tr>
+            <td>\nt5boot.bin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;
+Boot the bootsector of Windows XP/2000/NT </td>
+          </tr>
+          <tr>
+            <td>\i386\setupldr.bin&nbsp;&nbsp;; Start a setup routine
+of Windows XP/2000/NT </td>
+          </tr>
+          <tr>
+            <td>\dos4bcdw.ima&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;Volkov
+Commander&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;note1&nbsp;;&nbsp;\vc\vc.com
+            </td>
+          </tr>
+          <tr>
+            <td>\dos4bcdw.ima&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;
+Setup
+Windows 9x&nbsp;&nbsp;;&nbsp;note1&nbsp;;&nbsp;\win9x\setup.exe </td>
+          </tr>
+          <tr>
+            <td>/isolinux.bin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;
+Load
+Linux kernel &nbsp;&nbsp; ;&nbsp;note2&nbsp;;&nbsp;/linux/kernel </td>
+          </tr>
+          <tr>
+            <td>/isolinux.bin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;
+Start
+memdisk&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;note2&nbsp;;&nbsp;/memdisk
+/test.img </td>
+          </tr>
+          <tr>
+            <td>/cdsh/loader.bin&nbsp;&nbsp;&nbsp;&nbsp;; CD Shell
+script &nbsp;&nbsp; ;&nbsp;note2&nbsp;;&nbsp;script
+/test.scr </td>
+          </tr>
+          <tr>
+            <td>/bscript/loader.bin&nbsp;; BootScriptor script
+;&nbsp;note2&nbsp;;&nbsp;script /test.ini </td>
+          </tr>
+          <tr>
+            <td>/diskem1x.bin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;
+diskem1x.bin script ;&nbsp;note2&nbsp;;&nbsp;batch test.cmd </td>
+          </tr>
+          <tr>
+            <td>:return&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;
+Return from a submenu &nbsp;&nbsp; ;&nbsp;note3 </td>
+          </tr>
+          <tr>
+            <td>:reboot&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;
+Reboot PC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;&nbsp;note3
+            </td>
+          </tr>
+          <tr>
+            <td>:restart&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;Switch
+to
+English&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;note4&nbsp;;&nbsp;\BCDW\bcdw_eng.ini
+            </td>
+          </tr>
+          <tr>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td>; *** Appearance settings<br>
+            </td>
+          </tr>
+          <tr>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td>[Options] </td>
+          </tr>
+          <tr>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td>; *** Background settings<br>
+            </td>
+          </tr>
+          <tr>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td>BGColors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+00, 80, 80, 80 </td>
+          </tr>
+          <tr>
+            <td>BGSymbol&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+32 </td>
+          </tr>
+          <tr>
+            <td>TopText&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+            </td>
+          </tr>
+          <tr>
+            <td>BottomText&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+            </td>
+          </tr>
+          <tr>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td>; *** Settings of the window "Boot options" </td>
+          </tr>
+          <tr>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td>MenuPosition&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 02,
+05, 76, 13 </td>
+          </tr>
+          <tr>
+            <td>MenuColors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+f9, 9f, 1f, f0, 0f, fd, f9 </td>
+          </tr>
+          <tr>
+            <td>MenuBorderStyle&nbsp;&nbsp;&nbsp;= 5 </td>
+          </tr>
+          <tr>
+            <td>MenuShadowStyle&nbsp;&nbsp;&nbsp;= 2 </td>
+          </tr>
+          <tr>
+            <td>MenuTitle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+Boot options<br>
+            </td>
+          </tr>
+          <tr>
+            <td>MenuDefault&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+0 </td>
+          </tr>
+          <tr>
+            <td>MenuTimerLabel&nbsp;&nbsp;&nbsp;&nbsp;= Remaining time:
+            </td>
+          </tr>
+          <tr>
+            <td>MenuTimer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+30 </td>
+          </tr>
+          <tr>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td>; *** Settings of the window "About a boot option" </td>
+          </tr>
+          <tr>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td>HelpPosition&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 02,
+19, 76, 05 </td>
+          </tr>
+          <tr>
+            <td>HelpColors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+e0, 9f, 1f, e0, 0f, e0 </td>
+          </tr>
+          <tr>
+            <td>HelpBorderStyle&nbsp;&nbsp;&nbsp;= 5 </td>
+          </tr>
+          <tr>
+            <td>HelpShadowStyle&nbsp;&nbsp;&nbsp;= 2 </td>
+          </tr>
+          <tr>
+            <td>HelpTabSkip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+0 </td>
+          </tr>
+          <tr>
+            <td>HelpTitle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+About this boot option<br>
+            </td>
+          </tr>
+          <tr>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td>; *** Settings of the window "About this CD" </td>
+          </tr>
+          <tr>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td>AboutPosition&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 02, 01,
+76, 03 </td>
+          </tr>
+          <tr>
+            <td>AboutColors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+e0, 9f, 1f, e0, 0f, e0 </td>
+          </tr>
+          <tr>
+            <td>AboutBorderStyle&nbsp;&nbsp;= 5 </td>
+          </tr>
+          <tr>
+            <td>AboutShadowStyle&nbsp;&nbsp;= 2 </td>
+          </tr>
+          <tr>
+            <td>AboutTabSkip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 0 </td>
+          </tr>
+          <tr>
+            <td>AboutTitle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+About this CD<br>
+            </td>
+          </tr>
+          <tr>
+            <td>AboutText&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+~ </td>
+          </tr>
+          <tr>
+            <td>Emergency rescue bootdisk<br>
+            </td>
+          </tr>
+          <tr>
+            <td>~ </td>
+          </tr>
+          <tr>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td>; *** Settings of the window "Running line" </td>
+          </tr>
+          <tr>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td>ScrollPosition&nbsp;&nbsp;&nbsp;&nbsp;= 00, 00, 80, 01 </td>
+          </tr>
+          <tr>
+            <td>ScrollColors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 87,
+87, 87, 87, 0f, 87 </td>
+          </tr>
+          <tr>
+            <td>ScrollBorderStyle&nbsp;= 0 </td>
+          </tr>
+          <tr>
+            <td>ScrollShadowStyle&nbsp;= 0 </td>
+          </tr>
+          <tr>
+            <td>ScrollTabSkip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 1 </td>
+          </tr>
+          <tr>
+            <td>ScrollMode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+0 </td>
+          </tr>
+          <tr>
+            <td>ScrollTitle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= </td>
+          </tr>
+          <tr>
+            <td>ScrollText&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+~ </td>
+          </tr>
+          <tr>
+            <td>Text of a running line <br>
+            </td>
+          </tr>
+          <tr>
+            <td>~ </td>
+          </tr>
+          <tr>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td>; *** Comments to the list of boot options<br>
+            </td>
+          </tr>
+          <tr>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td>note1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+~ </td>
+          </tr>
+          <tr>
+            <td>BCDW permits to start a DOS program from CD<br>
+            </td>
+          </tr>
+          <tr>
+            <td>(special boot image dos4bcdw.ima is required) </td>
+          </tr>
+          <tr>
+            <td>~ </td>
+          </tr>
+          <tr>
+            <td>note2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+~ </td>
+          </tr>
+          <tr>
+            <td>BCDW can start ISOLinux, CD Shell,
+BootScriptor, </td>
+          </tr>
+          <tr>
+            <td>diskem1x.bin and transfer command options to them for
+performance<br>
+            </td>
+          </tr>
+          <tr>
+            <td>~ </td>
+          </tr>
+          <tr>
+            <td>note3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+~ </td>
+          </tr>
+          <tr>
+            <td>BCDW uses some internal commands to operate<br>
+            </td>
+          </tr>
+          <tr>
+            <td>~ </td>
+          </tr>
+          <tr>
+            <td>note4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+~ </td>
+          </tr>
+          <tr>
+            <td>The command :restart makes it possible to restart BCDW
+with different settings<br>
+            </td>
+          </tr>
+          <tr>
+            <td>(e.g. to switch interface language) </td>
+          </tr>
+          <tr>
+            <td>~ </td>
+          </tr>
+        </tbody>
+      </table>
+      <a name="ini_menu_bc"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>The list of
+bootoptions in \BootCat.Ini</b></font> </td>
+    </tr>
+    <tr>
+      <td>The list of boot options consists of a set of lines, each of
+one representing one boot option. Each line has several parts (in
+current version of BCDW four parts) separated by ';' (semicolon):<br>
+      <br>
+part 1 ; part 2 ; part 3 ; part 4<br>
+      <br>
+      <ol>
+        <li><a href="#ini_menu_bc_submenus">Name of a submenu
+configuration file</a> or <a href="#ini_menu_bc_images">name of a
+boot image file</a> or <a href="#ini_menu_bc_commands">internal
+operating command
+BCDW</a> </li>
+        <li>Title of the bootoption<br>
+        </li>
+        <li>Comment of the bootoption ( ^ - line divider) or a keyword
+from [Options] with the comment text<br>
+        </li>
+        <li><a href="#ini_menu_bc_parameters">Parameter for the
+boot image</a> or internal command BCDW </li>
+      </ol>
+All descriptions, except for the bootoption title, are optional. <a
+ name="ini_menu_bc_submenus"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>Format of entries
+that lead to a submenu</b></font> </td>
+    </tr>
+    <tr>
+      <td>Files with a submenu configuration can have any name on <b>*.ini</b>.
+Their format is identical to the one of <b>\BootCat.Ini</b>. <a
+ name="ini_menu_bc_images"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff"><span
+ style="font-weight: bold;">Format of entries for bootoptions</span><b></b></font>
+      </td>
+    </tr>
+    <tr>
+      <td>Bootimages can have any name but must not end on <b>*.ini</b>.<br>
+BCDW supports the following formats of boot images:<br>
+      <ul>
+        <li>Images of floppies or logical disk of any size (up to
+8Gb) with the file system FAT(12/16/32), e.g. <b>*.ima</b> files
+created by <a target="_blank" href="http://www.winimage.com">WinImage</a>.
+(<a href="http://bootcd.narod.ru/images_e.htm#fdd">example</a>) </li>
+        <li>Floppy images with capacity of 160Kb, 180Kb, 320Kb, 360Kb,
+720Kb,
+820Kb, 1.2Mb, 1.44Mb, 1.68Mb, 1.72Mb, 2.88Mb with a file system
+different of FAT </li>
+        <li>Images of harddisks with any number of sectors (<a
+ href="http://bootcd.narod.ru/images_e.htm#hdd">example</a>) </li>
+        <li>Programs with the loading address 07c0:0000 (e.g.
+bootsector of the Microsoft Windows XP/2000/NT floppies <a
+ href="http://bootcd.narod.ru/nt5boot.bin"><b>nt5boot.bin</b></a>, <a href="http://bootcd.narod.ru/nt4boot.bin"><b>nt4boot.bin</b></a>,
+w2ksect.bin, xpboot.bin etc.) </li>
+        <li>Programs with the loading address 07c0:0000 and the "Boot
+Info Table" (e.g.&nbsp; <b>isolinux.bin</b>) </li>
+        <li>Bootsector files of Microsoft Windows XP/2000/NT
+(files <b>\i386\setupldr.bin</b>) </li>
+      </ul>
+      <a name="ini_menu_bc_commands"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>Internal
+operating commands BCDW</b></font> </td>
+    </tr>
+    <tr>
+      <td>Instead of a boot image file you can pass internal operating
+commands to BCDW. The current version of BCDW accepts the following
+commands:<br>
+      <br>
+      <table>
+        <tbody>
+          <tr>
+            <td valign="top"><b>A:\</b></td>
+            <td>&nbsp;</td>
+            <td>Start from physical floppy drive. Command does not
+require options. </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>C:\</b></td>
+            <td>&nbsp;</td>
+            <td>Start from physical harddisk. Command does not require
+options. </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>:Reboot</b></td>
+            <td>&nbsp;</td>
+            <td>Reboot the computer. Command does not require options. </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>:Restart</b></td>
+            <td>&nbsp;</td>
+            <td>Restart BCDW with different setting. Command requires
+option -a name of a configuration file (name of another <b>\BCDW\bcdw.ini</b>).
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>:Return</b></td>
+            <td>&nbsp;</td>
+            <td>Return from submenu. Command does not require options. </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>:Nop</b></td>
+            <td>&nbsp;</td>
+            <td>Do nothing. Command does not require options. </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>:</b></td>
+            <td>&nbsp;</td>
+            <td>Similar to :nop, but makes this line inaccessible (item
+cannot be chosen). Command does not require options. </td>
+          </tr>
+        </tbody>
+      </table>
+      <a name="ini_menu_bc_parameters"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff"><span
+ style="font-weight: bold;">Parameters for bootimages</span><b></b></font>
+      </td>
+    </tr>
+    <tr>
+      <td>Bootimages usually do&nbsp; not support receiving parameters,
+but BCDW enables you to pass options to some bootimage files, namely:
+      <ol>
+        <li>The special boot image <b>dos4bcdw.ima</b> (<a
+ href="#dos4bcdw">how to create this image?</a>) - the DOS-program to
+start from the CD </li>
+        <li><b>ISOLinux</b> - performance parameter (<a href="#isolinux">details</a>)
+        </li>
+        <li><b>CD Shell</b> - performance parameter (<a href="#cdshell">details</a>)
+        </li>
+        <li><b>BootScriptor</b> - performance parameter (<a
+ href="#bootscriptor">details</a>) </li>
+        <li><b>diskem1x.bin</b> - performance parameter (<a
+ href="#diskemu">details</a>) </li>
+      </ol>
+      <a name="ini_menu_ui"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>Appearance
+settings of the interface windows in \BootCat.Ini</b></font> </td>
+    </tr>
+    <tr>
+      <td>The BCDW interface consitis of four windows, the
+"Boot options" window in which the different boot options can be
+chosen,
+the "About this boot option" window that displays information about the
+selected boot option, "About this CD" window that gives information
+about the Bootdisk and the "Running line" in which any text can be
+displayed. All windows except the "Boot options" window are optional.
+The settings for the windows is adjusted with the help of keywords in
+the section <b>[Options]</b>: </td>
+    </tr>
+    <tr>
+      <td>
+      <table>
+        <tbody>
+          <tr>
+            <td valign="top">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><b>*** Background colour below the windows</b> </td>
+          </tr>
+          <tr>
+            <td valign="top">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>BGColors</b></td>
+            <td>&nbsp;</td>
+            <td>Colour of the background below the windows<br>
+            <br>
+= C1, C2, C3, C4<br>
+            <br>
+C1 - Screen border colour<br>
+C2 - Background colour<br>
+C3 - Top line colour<br>
+C4 - Bottom line colour<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>BGSymbol</b></td>
+            <td>&nbsp;</td>
+            <td>Decimal code of a symbol filled background.<br>
+The most common symbols: 32, 176, 177, 178<br>
+Transparent background: 0<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>TopText</b></td>
+            <td>&nbsp;</td>
+            <td>Text of the top line<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>BottomText</b></td>
+            <td>&nbsp;</td>
+            <td> Text of the bottom line<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><b>*** Window "Boot options"</b> </td>
+          </tr>
+          <tr>
+            <td valign="top">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>MenuPosition</b></td>
+            <td>&nbsp;</td>
+            <td>Location and size of the window<br>
+            <br>
+= X, Y, W, H<br>
+            <br>
+X - From the left border<br>
+Y - From the top border<br>
+W - Width<br>
+H - Heigth<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>MenuColors</b></td>
+            <td>&nbsp;</td>
+            <td>Colour of window elements<br>
+            <br>
+= C1, C2, C3, C4, C5, C6, C7<br>
+            <br>
+C1 - Frame colour<br>
+C2 - Window active colour<br>
+C3 - Window inactive colour<br>
+C4 - Colour of menu items<br>
+C5 - Colour of currently selected item when window active<br>
+C6 - Colour of currently selected item when window inactive<br>
+C7 - Colour of inaccessible items<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>MenuBorderStyle</b></td>
+            <td>&nbsp;</td>
+            <td>Style of window frame: 0, 1, 2, 3, 4, 5 (0 - no frame)<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>MenuShadowStyle</b></td>
+            <td>&nbsp;</td>
+            <td>Style of window shadow: 0, 1, 2 (0 - no shadow)<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>MenuTitle</b></td>
+            <td>&nbsp;</td>
+            <td>Text of window title<br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>MenuDefault</b></td>
+            <td>&nbsp;</td>
+            <td>Default menuitem index: 0-255<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>MenuTimerLabel</b></td>
+            <td>&nbsp;</td>
+            <td>Text of timer entry<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>MenuTimer</b></td>
+            <td>&nbsp;</td>
+            <td>Delay in seconds before automatic load<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><b>*** Window "About this boot option"</b> </td>
+          </tr>
+          <tr>
+            <td valign="top">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>HelpPosition</b></td>
+            <td>&nbsp;</td>
+            <td>Location and size of the window<br>
+            <br>
+= X, Y, W, H<br>
+            <br>
+X - From the left border<br>
+Y - From the top border<br>
+W - Width<br>
+H - Height<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>HelpColors</b></td>
+            <td>&nbsp;</td>
+            <td>Colours of the window elements<br>
+            <br>
+= C1, C2, C3, C4, C5, C6<br>
+            <br>
+C1 - Frame colour<br>
+C2 - Window active colour<br>
+C3 - Window inactive colour<br>
+C4 - Lines colour<br>
+C5 - Colour of current line when window active<br>
+C6 - Colour of current line when window inactive<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>HelpBorderStyle</b></td>
+            <td>&nbsp;</td>
+            <td>Style of window frame: 0, 1, 2, 3, 4, 5 (0 - no frame)<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>HelpShadowStyle</b></td>
+            <td>&nbsp;</td>
+            <td> Style of window shadow: 0, 1, 2 (0 - no shadow)<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>HelpTabSkip</b></td>
+            <td>&nbsp;</td>
+            <td>Skip help window when switching with Tab: 0 - off., 1 -
+on.<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+          </tr>
+          <tr>
+          </tr>
+          <tr>
+            <td valign="top"><b>HelpTitle</b></td>
+            <td>&nbsp;</td>
+            <td>Text of window title<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><b>*** Window "About this CD"</b> </td>
+          </tr>
+          <tr>
+            <td valign="top">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>AboutPosition</b></td>
+            <td>&nbsp;</td>
+            <td>Location and size of the window<br>
+            <br>
+= X, Y, W, H<br>
+            <br>
+X - From the left border<br>
+Y - From the top border<br>
+W - Width<br>
+H - Height<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>AboutColors</b></td>
+            <td>&nbsp;</td>
+            <td>Colours of the window elements<br>
+            <br>
+= C1, C2, C3, C4, C5, C6<br>
+            <br>
+C1 - Frame colour<br>
+C2 - Window active colour<br>
+C3 - Window inactive colour<br>
+C4 - Lines colour<br>
+C5 - Colour of current line when window active<br>
+C6 - Colour of current line when window inactive<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>AboutBorderStyle</b></td>
+            <td>&nbsp;</td>
+            <td>Style of window frame: 0, 1, 2, 3, 4, 5 (0 - no frame)<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>AboutShadowStyle</b></td>
+            <td>&nbsp;</td>
+            <td> Style of window shadow: 0, 1, 2 (0 - no shadow)<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>AboutTabSkip</b></td>
+            <td>&nbsp;</td>
+            <td>Skip about window when switching with Tab: 0 - off., 1
+-
+on.<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>AboutTitle</b></td>
+            <td>&nbsp;</td>
+            <td>Text of window tilte<br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>AboutText</b></td>
+            <td>&nbsp;</td>
+            <td>Contents of this window<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><b>*** Window "Running line"</b> </td>
+          </tr>
+          <tr>
+            <td valign="top">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>ScrollPosition</b></td>
+            <td>&nbsp;</td>
+            <td>Location and size of the window<br>
+            <br>
+= X, Y, W, H<br>
+            <br>
+X - From the left border<br>
+Y - From the top border<br>
+W - Width<br>
+H - Height<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>ScrollColors</b></td>
+            <td>&nbsp;</td>
+            <td>Colours of the window elements<br>
+            <br>
+= C1, C2, C3, C4, C5, C6<br>
+            <br>
+C1 - Frame colour<br>
+C2 - Window active colour<br>
+C3 - Window inactive colour<br>
+C4 - Lines colour<br>
+C5 - Colour of current line when window active<br>
+C6 - Colour of current line when window inactive<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>ScrollBorderStyle</b></td>
+            <td>&nbsp;</td>
+            <td>Style of window frame: 0, 1, 2, 3, 4, 5 (0 - no frame)<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>ScrollShadowStyle</b></td>
+            <td>&nbsp;</td>
+            <td> Style of window shadow: 0, 1, 2 (0 - no shadow)<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>ScrollTabSkip</b></td>
+            <td>&nbsp;</td>
+            <td>Skip running line window when switching with Tab: 0 -
+off., 1 -
+on.<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>ScrollMode</b></td>
+            <td>&nbsp;</td>
+            <td>Window mode: 0 - Running line, 1 - window with the text<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>ScrollTitle</b></td>
+            <td>&nbsp;</td>
+            <td>Text of window title<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>ScrollText</b></td>
+            <td>&nbsp;</td>
+            <td>Contents of the window<br>
+            <br>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><b>*** Colours</b> </td>
+          </tr>
+          <tr>
+            <td valign="top">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp; </td>
+          </tr>
+          <tr>
+            <td valign="top"><b>C1, C2, C3, C4, C5, C6, C7</b></td>
+            <td>&nbsp;</td>
+            <td>The colours are set by a combination of two
+placeholders. First placeholder - background colour, second placeholder
+- foreground colour. The values of the placeholders as follows:<br>
+0 - Black<br>
+1 - Blue<br>
+2 - Green<br>
+3 - Cyan<br>
+4 - Red<br>
+5 - Magenta<br>
+6 - Brown<br>
+7 - LGrey<br>
+8 - DGrey<br>
+9 - LBlue<br>
+A - LGreen<br>
+B - LCyan<br>
+C - LRed<br>
+D - LMagenta<br>
+E - Yellow<br>
+F - White<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <a name="copycd"></a> </td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>How to add a
+program from a bootable CD to a CD with BCDW?</b></font> </td>
+    </tr>
+    <tr>
+      <td>Some programs are able to create a bootable CD (e.g. the <b>Acronis</b>
+programs).<br>
+To add such programs to a CD with BCDW
+do the following:<br>
+      <ol>
+        <li>Copy all the files and folders of the bootable CD to your
+CD with BCDW (the Acronis BootCDs put everything in the bootsector, so
+no need to copy anything) </li>
+        <li>Using <a target="_blank" href="http://www.winiso.com">WinISO</a>
+create an <b>*.iso</b> image of the bootbale CD (select "Make
+ISO from CDROM" from the menu "Actions") </li>
+        <li>Open the just created <b>*.iso</b> image (select "Open"
+from the menu
+"File") </li>
+        <li>Save the boot information to a <b>*.wbt</b> file
+(select "Save boot information to file..." from the menu "Bootable CD")
+        </li>
+        <li>Put the <b>*.wbt</b> file on your CD with
+BCDW </li>
+        <li>Add an entry in <b>\BootCat.ini</b> for this boot option
+similar to the following:<br>
+          <br>
+\acronis.wbt ; Program Acronis<br>
+          <br>
+        </li>
+      </ol>
+Detailed description with screenshots see <a href="http://bootcd.narod.ru/copyboot_e.htm">here</a>
+      <a name="copyfd1x"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>How to add a
+program from a bootable floopy to a CD with BCDW?</b></font> </td>
+    </tr>
+    <tr>
+      <td>Some programs can create a bootable floppy (e.g. <b>Ontrack
+EasyRecovery</b>, <b>Norton Ghost</b> etc.).<br>
+To add such programs to a CD with BCDW
+do the following:<br>
+      <ol>
+        <li>Create an <b>*.ima</b> image of the boot floppy (<a
+ href="#imamake">how to do this?</a>) </li>
+        <li>Put this <b>*.ima</b> image on your CD with
+BCDW </li>
+        <li>Add an entry in <b>\BootCat.ini</b> for this boot option
+similar to the following:<br>
+          <br>
+\er.ima ; Easy Recovery<br>
+\ghost.ima ; Norton Ghost<br>
+          <br>
+        </li>
+      </ol>
+      <a name="copyfd2x"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>How to add a
+program from two bootable floppies to a CD with BCDW?</b></font> </td>
+    </tr>
+    <tr>
+      <td>Some programs create two bootable floppies 1.44mb (e.g. <b>PowerQuest
+Partition Magic</b>).<br>
+To add such programs to a CD with BCDW
+do the following:<br>
+      <ol>
+        <li>Insert the first floppy in your floppy drive<br>
+        </li>
+        <li>Using <a target="_blank" href="http://www.winimage.com">WinImage</a>
+read the floppy (select "Read disk" from the menu "Disk") </li>
+        <li>Change the format of the disk image to 2.88Mb (select
+"Change
+format..." from the menu "Image") </li>
+        <li>Insert the second floppy in the floppy drive<br>
+        </li>
+        <li>Drag and drop all the files of the second floppy to the
+window of <a target="_blank" href="http://www.winimage.com">WinImage</a>
+        </li>
+        <li>Save the image of the floppies to a <b>*.ima</b> file
+(select
+"Save as..." from menu "File") </li>
+        <li>Put the <b>*.ima</b> image to your CD with
+BCDW </li>
+        <li>Add an entry in <b>\BootCat.ini</b> for this boot option
+similar to the following:<br>
+          <br>
+\pmagic.ima ; PowerQuest Partition Magic<br>
+          <br>
+        </li>
+      </ol>
+      <a name="wntsetup"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>How to add a
+setup routine of Microsoft Windows XP/2000/NT to a CD with BCDW?</b></font>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <ol>
+        <li>Copy all the files and folders of your <i>original</i> <b>Microsoft
+Windows XP/2000/NT </b>CD to your CD with BCDW. </li>
+        <li>Add an entry in <b>\BootCat.ini</b> for this boot option
+similar to the following:<br>
+          <br>
+\I386\setupldr.bin ; Setup Microsoft Windows XP/2000/NT<br>
+          <br>
+        </li>
+      </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>You do not have to copy <span style="font-style: italic;">all</span>
+files and folders of your Microsoft Windows XP/2000/NT CD. </td>
+    </tr>
+    <tr>
+      <td>For the needed files, see <a href="http://bootcd.narod.ru/ntbootcd_e.htm">here</a> </td>
+    </tr>
+    <tr>
+      <td>How to add more than one setup routines of Microsoft
+Windows XP/2000/NT see <a href="http://bootcd.narod.ru/ntmultibootcd_e.htm">here</a> <a
+ name="winpe"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>How to add
+Microsoft Windows PE to a CD with BCDW?</b></font> </td>
+    </tr>
+    <tr>
+      <td>
+      <ol>
+        <li>Copy all files and folders of your <b>Microsoft Windows PE
+          </b>CD to your CD with BCDW </li>
+        <li>Rename the folder <b>\I386</b> to <b>\WNPE</b> </li>
+        <li>Using a HEX-editor (e.g. <a target="_blank"
+ href="http://www.winhex.com">WinHex</a>) open <b>\WNPE\setupldr.bin</b>
+and replace all occurrences of <b>I386</b> to <b>WNPE</b>; </li>
+        <li>Add an entry in <b>\BootCat.ini</b> for this boot option
+similar to the following:<br>
+          <br>
+\WNPE\setupldr.bin ; Microsoft Windows PE <br>
+        </li>
+      </ol>
+      <a name="erdc"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>How to add ERD
+Commamder to a CD with BCDW?</b></font> </td>
+    </tr>
+    <tr>
+      <td>
+      <ol>
+        <li>Copy all files and folders of your <b>ERD Commander </b>CD
+to your CD with BCDW </li>
+        <li>Rename the folder <b>\I386</b> to <b>\ERDC</b> </li>
+        <li>Using a HEX-editor (e.g. <a href="http://www.winhex.com"
+ target="_blank">WinHex</a>) open <b>\ERDC\setupldr.bin</b> and
+replace all occurrences of <b>I386</b> to <b>ERDC</b>; </li>
+        <li>Add an entry in <b>\BootCat.ini</b> for this boot option
+similar to the following:<br>
+          <br>
+\ERDC\setupldr.bin ; ERD Commander <br>
+        </li>
+      </ol>
+      <a name="oobc"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<span
+ style="font-weight: bold;">How to add</span><b> O&amp;O BlueCon to a
+CD with BCDW?</b></font> </td>
+    </tr>
+    <tr>
+      <td>
+      <ol>
+        <li>Copy all files and folders of your <b>O&amp;O BlueCon </b>CD
+to your CD with BCDW </li>
+        <li>Rename the folder <b>\I386</b> to <b>\OOBC</b> </li>
+        <li>Using a HEX-editor (e.g. <a href="http://www.winhex.com"
+ target="_blank">WinHex</a>) open <b>\OOBC\setupldr.bin</b> and
+replace all occurrences of <b>I386</b> to <b>OOBC</b>; </li>
+        <li>Add an entry in <b>\BootCat.ini</b> for this boot option
+similar to the following:<br>
+          <br>
+\OOBC\setupldr.bin ; O&amp;O BlueCon <br>
+        </li>
+      </ol>
+      <a name="acronis"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>How to add the<b>
+Acronis</b> programs to a CD with BCDW?</b></font> </td>
+    </tr>
+    <tr>
+      <td>
+      <ol>
+        <li>Create a bootable CD of your Acronis program<br>
+        </li>
+        <li>Copy the program from this bootable CD to your CD with BCDW
+(<a href="#copycd">how to do this?</a>) </li>
+      </ol>
+      <a name="dosstart"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>How to add a
+DOS-program to a CD with BCDW?</b></font> </td>
+    </tr>
+    <tr>
+      <td>See the two following items... <a name="w9xsetup"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>How to add the
+setup routine of Microsoft Windows 9x/Me to a CD with BCDW?</b></font> </td>
+    </tr>
+    <tr>
+      <td>
+      <ol>
+        <li>Copy the files and folders from your <b>Microsoft Windows
+9x/Me</b> CD to a folder <b>\Win9x </b>to your CD with BCDW </li>
+        <li>Place the special boot image <b>dos4bcdw.ima</b> in the
+root of the CD (<a href="#dos4bcdw">how to create this image?</a>) </li>
+        <li>Add an entry in <b>\BootCat.ini</b> for this boot option
+similar to the following:<br>
+          <br>
+\dos4bcdw.ima ; Setup Microsoft Windows 9x/Me ; ; \Win9x\setup.exe<br>
+          <br>
+        </li>
+      </ol>
+      <a name="vc"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>How to add
+Volkov Commander to a CD with BCDW?</b></font> </td>
+    </tr>
+    <tr>
+      <td>
+      <ol>
+        <li>Copy the files of <b>Volkov Commander</b> to a folder <b>\VC
+          </b>on your BCDW CD </li>
+        <li>Place the special boot image <b>dos4bcdw.ima</b> in the
+root of the CD (<a href="#dos4bcdw">how to create this image?</a>) </li>
+        <li>Add an entry in <b>\BootCat.ini</b> for this boot option
+similar to the following:<br>
+          <br>
+\dos4bcdw.ima ; Volkov Commander ; ; \VC\vc.com<br>
+          <br>
+        </li>
+      </ol>
+      <a name="dos4bcdw"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>How to create the
+special boot image dos4bcdw.ima?</b></font> </td>
+    </tr>
+    <tr>
+      <td>
+      <ol>
+        <li>Create the emergeny rescue floppy Microsoft Windows 98SE
+(My Computer - Contol Panel - Add/remove programs - Startdisk) </li>
+        <li>Copy the files <b>bcdw_cl.com</b>, <b>autoexec.bat</b>
+and <b>config.sys</b> from the BCDW archive to this floppy </li>
+        <li>Create an image of this floppy with the name <b>dos4bcdw.ima</b>
+(<a href="#imamake">how to do this?</a>) </li>
+      </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>If you want to use a different DOS version (PC-DOS, DR-DOS,
+FreeDOS è ò.ä.), copy only the file <b>bcdw_cl.com</b> to your floppy
+and add the following lines to the <b>autoexec.bat</b>
+on your DOS floppy: </td>
+    </tr>
+    <tr>
+      <td> echo Looking for bootable CD...<br>
+BCDW_CL.COM<br>
+if errorlevel 1 goto NO_BCDW_CL<br>
+echo Loading DOS-program...<br>
+%BCDW_CDROM%:<br>
+call %BCDW_CL%<br>
+:NO_BCDW_CL<br>
+      <a name="imamake"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>How to create an
+image of a floppy or a logical disk?</b></font> </td>
+    </tr>
+    <tr>
+      <td>
+      <ol>
+        <li>Start <a target="_blank" href="http://www.winimage.com">WinImage</a>
+        </li>
+        <li>Choose floppy or logical disk from the menu "Disk" </li>
+        <li>Read a floppy or logical disk selecting "Read
+Disk" from the menu "Disk" </li>
+        <li>Save a <b>*.ima</b> image of the disk selecting
+"Save as..." from the menu "File" </li>
+      </ol>
+For a detailed description with screenshots see <a href="http://bootcd.narod.ru/imgmake_e.htm">here</a>.
+      <a name="customfd"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<span
+ style="font-weight: bold;">How to create an image of custom size</span><b>
+(e.g. more than 2.88Mb)?</b></font> </td>
+    </tr>
+    <tr>
+      <td>
+      <ol>
+        <li>Create a logical volume of the desired size on your
+harddisk with filesystem FAT16 (e.g. with the help of Acronis
+PartitionExpert or
+PowerQuest Partition Magic) </li>
+        <li>Transfer the system files to this logical volume<br>
+        </li>
+        <li>Copy any other files to this volume<br>
+        </li>
+        <li>Create a <b>*.ima</b> image of this volume (<a
+ href="#imamake">how to do this?</a>) </li>
+      </ol>
+Example of bootable images of various sizes ~700mb, ~650mb, ~300mb,
+~100mb,
+~50mb, 11.52mb (8x1.44mb), 5.76mb (4x1.44mb) see <a href="http://bootcd.narod.ru/images_e.htm">here</a>
+      <a name="isolinux"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font color="#ffffff" face="Arial"><b>Is it possible to use</b></font><font
+ face="Arial" color="#ffffff"><b> ISOLinux with BCDW?</b></font> </td>
+    </tr>
+    <tr>
+      <td>It is. Do the following:
+      <ol>
+        <li>Place all the <b>ISOLinux</b> files in a folder on your CD
+(e.g. <b>/isolinux</b>) </li>
+        <li>Make sure that none of the following files are on your CD
+(if they are, remove them):<br>
+          <br>
+/boot/isolinux/isolinux.cfg<br>
+/boot/isolinux/linux<br>
+/isolinux/isolinux.cfg<br>
+/isolinux/linux<br>
+/isolinux.cfg<br>
+          <br>
+        </li>
+        <li>Add entries&nbsp; similar to the following to <b>/BootCat.Ini</b>:<br>
+          <br>
+/isolinux/isolinux.bin ; Command line ISOLinux<br>
+/isolinux/isolinux.bin ; Linux&nbsp;&nbsp;&nbsp;;; /kernel
+initrd=/rescue.gz<br>
+/isolinux/isolinux.bin ; Memdisk ;; /isolinux/memdisk initrd=/fd.img<br>
+        </li>
+      </ol>
+      <a name="cdshell"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;</font><font
+ color="#ffffff" face="Arial"><b>Is it possible to use</b></font><font
+ face="Arial" color="#ffffff"><b> CD Shell with BCDW?</b></font> </td>
+    </tr>
+    <tr>
+      <td>It is. Do the following:
+      <ol>
+        <li>Put the <b>CD Shell</b> files to your CD in the folder <b>/cdsh</b>
+(must have this name) </li>
+        <li>Make sure that none of the following files are on your CD
+(if they are, remove them):<br>
+          <br>
+/cdsh/cdshell.ini<br>
+/cdsh/cdsh.csi<br>
+/cdsh/cdsh.bmp<br>
+          <br>
+        </li>
+        <li>Add entries&nbsp; similar to the following to <b>/BootCat.Ini</b>:<br>
+          <br>
+/cdsh/loader.bin ; Command line CD Shell<br>
+/cdsh/loader.bin ; Keyinput sample ;; script /cdsh/samples/keyinput.scr<br>
+/cdsh/loader.bin ; Variable sample ;; script /cdsh/samples/variable.scr<br>
+        </li>
+      </ol>
+      <a name="bootscriptor"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;</font><font
+ color="#ffffff" face="Arial"><b>Is it possible to use</b></font><font
+ face="Arial" color="#ffffff"><b> BootScriptor with BCDW?</b></font> </td>
+    </tr>
+    <tr>
+      <td>It is. Do the following:
+      <ol>
+        <li>Put the <b>BootScriptor</b> files to your CD in the folder
+          <b>/bscript</b> (must have this name) </li>
+        <li>Make sure that none of the following files are on your CD
+(if they are, remove them):<br>
+          <br>
+/bscript/bscript.ini<br>
+/bscript/bscript.bsi<br>
+/bscript/bscript.bmp<br>
+          <br>
+        </li>
+        <li>Add entries&nbsp; similar to the following to <b>/BootCat.Ini</b>:<br>
+          <br>
+/bscript/loader.bin ; Command line BootScriptor<br>
+/bscript/loader.bin ; 911 Rescue CD&nbsp;&nbsp;&nbsp;&nbsp;;; script
+/bscript/911cd.ini<br>
+/bscript/loader.bin ; Win2K Pro PockeR ;; script /bscript/pocker.ini<br>
+/bscript/loader.bin ; J.Spitzner's CD&nbsp;&nbsp;;; script
+/bscript/cdmenue.ini<br>
+        </li>
+      </ol>
+      <a name="diskemu"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>Is it possible to
+use diskem1x.bin with BCDW?</b></font> </td>
+    </tr>
+    <tr>
+      <td>It is. Do the following:
+      <ol>
+        <li>Put the file <b>diskem1x.bin</b> in any folder on your CD
+(e.g. <b>/</b>) </li>
+        <li>Make sure that none of the following files are on your CD
+(if they are, remove them):<br>
+          <br>
+/diskemu.cmd<br>
+          <br>
+        </li>
+        <li>Add entries&nbsp; similar to the following to <b>/BootCat.Ini</b>:<br>
+          <br>
+/diskem1x.bin ; Command line diskem1x.bin<br>
+/diskem1x.bin ; Sample script ;; batch diskem1x.cmd<br>
+        </li>
+      </ol>
+      <a name="bootfix"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>"Press any key to
+boot from CD..."</b></font> </td>
+    </tr>
+    <tr>
+      <td>If you want the message "Press any key to boot from CD..." to
+appear before BCDW is starting copy the file <b>bootfix.bin</b>
+from Microsoft Windows XP/2000 to the BCDW folder on your CD. <a
+ name="skipcd"> </a></td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td><font face="Arial" color="#ffffff">&nbsp;<b>How to skip BCDW
+on startup</b></font> </td>
+    </tr>
+    <tr>
+      <td>BCDW listens at startup for the left ALT key. If it is
+pressed, the PC starts from harddisk without any messages or prompts.<br>
+      </td>
+    </tr>
+    <tr bgcolor="#005aef">
+      <td align="right">&nbsp; </td>
+    </tr>
+    <tr>
+      <td><small>Copyright (c)2004 by reanimatolog. <a href="http://bootcd.narod.ru/index_e.htm">http://bootcd.narod.ru</a>
+      <br>English translation by Wolfgang Brinkmann</small>
+  </tbody>
+</table>
+</body>
+</html>

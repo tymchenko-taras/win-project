@@ -1,0 +1,17 @@
+[Version]
+Signature= "$Windows NT$"
+
+[PEBuilder]
+Name="Bootable CD Wizard v2.0a1: Add ""Volkov Commander"" to boot menu"
+Enable=0
+
+[WinntDirectories]
+a="BCDW",2
+b="VC",2
+
+[SourceDisksFiles]
+bcdw2dos.ima=a
+VC\*=b
+
+[Append]
+\BCDW\bcdw.ini, bcdw_vc.ini

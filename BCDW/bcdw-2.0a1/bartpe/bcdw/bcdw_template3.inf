@@ -1,0 +1,13 @@
+[Version]
+Signature= "$Windows NT$"
+
+[PEBuilder]
+Name="Bootable CD Wizard v2.0a1: Use menu template #3"
+Enable=0
+
+[WinntDirectories]
+
+[SourceDisksFiles]
+
+[Append]
+\BCDW\bcdw.ini, bcdw_template3.ini

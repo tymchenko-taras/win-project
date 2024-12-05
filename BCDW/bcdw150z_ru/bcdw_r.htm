@@ -1,0 +1,1000 @@
+<html>
+<head>
+<title>Bootable CD Utilities by reanimatolog - Bootable CD Wizard - Freeware Multiple-Image Bootable CD Manager</title>
+<meta http-equiv="Content-Language" content="ru">
+<meta content="text/html; charset=windows-1251" http-equiv=Content-Type>
+<style><!--
+body {font-family:Monospace;}
+--></style>
+</head>
+<body>
+  <table align="center" bgcolor=#F0F0F0 width="765px" cellspacing=0 cellpadding=5>
+    <tr>
+      <td>
+
+        <table align="center" bgcolor=#F0F0F0 width="750px" cellspacing=0 cellpadding=5>
+          <tr>
+            <td align="left"><a href=http://bootcd.narod.ru/index_r.htm>http://bootcd.narod.ru</a>
+            <td align="right">
+
+        </table>
+    <tr bgcolor=#005AEF>
+      <td><font color=#FFFFFF face=Arial>&nbsp;<b>Bootable CD Wizard v1.50Z - Freeware Multiple-Image Bootable CD Manager</b></font>
+
+    <tr>
+      <td>
+        <ul><font size=2>
+          <li><a href=#whatisit>Что это?</a>
+          <li><a href=#whatinpackage>Что в архиве?</a>
+          <li><a href=#writecd>Как записать мульти-загрузочный компакт-диск с BCDW?</a>
+          <li><a href=#configs>Настройка BCDW</a>
+            <ul>
+              <li><a href=#ini_main>Конфигурационный файл <b>\BCDW\bcdw.ini</b></a>
+                <ul>
+                  <li><a href=#ini_main_example>Пример файла <b>\BCDW\bcdw.ini</b></a>
+                  <li><a href=#ini_main_keywords>Ключевые слова в файле <b>\BCDW\bcdw.ini</b></a>
+                </ul>
+              <li><a href=#ini_menu>Конфигурационный файл <b>\BootCat.Ini</b></a>
+                <ul>
+                  <li><a href=#ini_menu_example>Пример файла <b>\BootCat.Ini</b></a>
+                  <li><a href=#ini_menu_bc>Каталог вариантов загрузки в файле <b>\BootCat.Ini</b></a>
+                    <ul>
+                      <li><a href=#ini_menu_bc_submenus>Имена и формат файлов с описаниями подменю</a>
+                      <li><a href=#ini_menu_bc_images>Имена и форматы файлов с загрузочными образами</a>
+                      <li><a href=#ini_menu_bc_commands>Управляющие команды BCDW</a>
+                      <li><a href=#ini_menu_bc_parameters>Параметры для загрузочных образов</a>
+                    </ul>
+                  <li><a href=#ini_menu_ui>Описание внешнего вида интерфейса в файле <b>\BootCat.Ini</b></a>
+                </ul>
+              </ul>
+          <li><a href=#copycd>Как <b>переписать программу с загрузочного компакт-диска</b> на компакт-диск с BCDW?</a>
+          <li><a href=#copyfd1x>Как <b>переписать программу с загрузочной дискеты</b> на компакт-диск с BCDW?</a>
+          <li><a href=#copyfd2x>Как <b>переписать программу с двух загрузочных дискет по 1.44mb</b> на компакт-диск с BCDW?</a>
+          <li><a href=#wntsetup>Как <b>добавить</b> программу установки <b>Microsoft Windows XP/2000/NT</b> на компакт-диск с BCDW?</a>
+          <li><a href=#winpe>Как <b>добавить</b> программу <b>Microsoft Windows PE</b> на компакт-диск с BCDW?</a>
+          <li><a href=#erdc>Как <b>добавить</b> программу <b>ERD Commamder</b> на компакт-диск с BCDW?</a>
+          <li><a href=#oobc>Как <b>добавить</b> программу <b>O&O BlueCon</b> на компакт-диск с BCDW?</a>
+          <li><a href=#acronis>Как <b>добавить</b> программу от <b>Acronis</b> на компакт-диск с BCDW?</a>
+          <li><a href=#dosstart>Как <b>добавить DOS-программу</b> на компакт-диск с BCDW?</a>
+          <li><a href=#w9xsetup>Как <b>добавить</b> программу установки <b>Microsoft Windows 9x/Me</b> на компакт-диск с BCDW?</a>
+          <li><a href=#vc>Как <b>добавить Volkov Commander</b> на компакт-диск с BCDW?</a>
+          <li><a href=#dos4bcdw>Как <b>создать</b> специальный загрузочный образ <b>dos4bcdw.ima</b>?</a>
+          <li><a href=#imamake>Как <b>создать образ</b> дискеты или логического <b>диска</b>?</a>
+          <li><a href=#customfd>Как <b>создать загрузочный образ</b> произвольного объема (например, <b>более 2.88Mb</b>)?</a>
+          <li><a href=#isolinux>Можно ли <b>использовать</b> программу <b>ISOLinux</b> совместно с BCDW?</a>
+          <li><a href=#cdshell>Можно ли <b>использовать</b> программу <b>CD Shell</b> совместно с BCDW?</a>
+          <li><a href=#bootscriptor>Можно ли <b>использовать</b> программу <b>BootScriptor</b> совместно с BCDW?</a>
+          <li><a href=#diskemu>Можно ли <b>использовать</b> программу <b>diskem1x.bin</b> совместно с BCDW?</a>
+          <li><a href=#bootfix>"Press any key to boot from CD..."</a>
+          <li><a href=#skipcd>Быстрая отмена загрузки с компакт-диска с BCDW</a>
+        </ul>
+    
+    <a name=whatisit>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Что это?</b></font>
+      <tr>
+        <td>Это менеджер загрузки с компакт-дисков.
+          <ul>
+            <li>Позволяет создавать мульти-загрузочные (Multiple-Image Bootable CD) компакт-диски для компьютеров, которые не поддерживают мульти-загрузку с компакт-дисков.
+            <li>Позволяет создавать мульти-язычное, иерархическое меню загрузки с настраиваемым внешним видом.
+            <li>Поддерживает расширенный <a href=#ini_menu_bc_images>набор форматов</a> загрузочных образов (<a href=http://bootcd.narod.ru/images.htm>примеры</a>).
+          </ul>
+    </a>
+
+    <a name=whatinpackage>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Что в архиве?</b></font>
+      <tr>
+        <td>
+          <table>
+            <tr><td valign="top"><b>bcdwboot.bin</b><td>&nbsp;<td>Файл для использования в качестве загрузочного образа при записи компакт-диска
+            <tr><td valign="top"><b>BCDW\bcdw.bin</b><td>&nbsp;<td>Менеджер
+            <tr><td valign="top"><b>BCDW\bcdw*.ini</b><td>&nbsp;<td>Примеры конфигурационного файла менеджера
+            <tr><td valign="top"><b>BCDW\FONTS\</b><td>&nbsp;<td>Папка с национальными шрифтами
+            <tr><td valign="top"><b>BCDW\CHARSETS\</b><td>&nbsp;<td>Папка с описаниями национальных наборов символов
+            <tr><td valign="top"><b>BCDW\logo.gif</b><td>&nbsp;<td>Пример графической заставки
+            <tr><td valign="top"><b>Boot*.Ini</b><td>&nbsp;<td>Примеры описания загрузочного меню
+            <tr><td valign="top"><b>initest.com</b><td>&nbsp;<td>Программа для тестирования конфигурации без записи компакт-диска
+            <tr><td valign="top"><b>DOS4BCDW\</b><td>&nbsp;<td>Папка с файлами необходимыми при создании специального загрузочного образа <b>dos4bcdw.ima</b> (<a href=#dos4bcdw>как создать этот образ?</a>)
+          </table>
+    </a>
+
+    <a name=writecd>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Как записать мульти-загрузочный компакт-диск с BCDW?</b></font>
+      <tr>
+        <td>
+          <ul>
+            <li>Создайте временную папку для файлов Вашего мульти-загрузочного компакт-диска (например, <b>C:\MyBootCD\</b>)
+            <li>Распакуйте ZIP-архив с BCDW в эту папку
+            <li>Добавьте в эту папку Ваши файлы (загрузочные образы и пр.)
+            <li>Откройте с помощью программы Windows Notepad (Блокнот Windows) файл <b>C:\MyBootCD\BootCat.Ini</b>
+            <li>Измените, каталог вариантов загрузки по Вашему усмотрению (удалите лишние варианты/добавьте свои)
+            <li>Запустите Вашу программу для записи компакт-дисков
+            <li>Создайте проект загрузочного компакт-диска со следующими параметрами:<br>
+                Загрузочный образ: <b>C:\MyBootCD\bcdwboot.bin</b><br>
+                Режим загрузки: No emulation (Без эмуляции)<br>
+                Адрес загрузки: 07c0<br>
+                Количество секторов для загрузки: 4<br>
+                (как это сделать для <a href=http://bootcd.narod.ru/nenero.htm>Nero</a>, <a href=http://bootcd.narod.ru/necdrwin.htm>CDRWin</a>, <a href=http://bootcd.narod.ru/neecdc.htm>Easy CD Creator</a>, <a href=http://bootcd.narod.ru/neinstcd.htm>Instant CD+DVD</a>, <a href=http://bootcd.narod.ru/newinoncd.htm>WinOnCD</a>, <a href=http://bootcd.narod.ru/necdimage.htm>CDImage</a> или <a href=http://bootcd.narod.ru/nemkisofs.htm>mkisofs</a>)
+            <li>Добавьте в проект содержимое папки <b>C:\MyBootCD\</b>
+            <li>Запишите диск
+          </ul>
+    </a>
+    
+    <a name=configs>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Настройка BCDW</b></font>
+      <tr>
+        <td>
+          <ul>
+            <li>Настройка BCDW заключается с создании двух конфигурационных файлов (или изменении готовых):
+              <ul>
+                <li><b>\BCDW\bcdw.ini</b> с параметрами запуска программы
+                <li><b>\BootCat.Ini</b> с каталогом вариантов загрузки и описанием внешнего вида интерфейса
+              </ul>
+            <li>Оба файла являются текстовыми файлами и могут быть созданы с помощью программы Windows Notepad (Блокнот Windows), или аналогичной.
+            <li>Конфигурационные файлы могут быть не только текстовыми файлами DOS/Windows, но и текстовыми файлами *NIX/Linux.
+            <li>Конфигурационные файлы имеют структуру схожую со структурой <b>*.ini</b>/<b>*.inf</b>-файлов Windows:
+              <ul>
+                <li>файлы разбиты на секции, каждая из которых начинается с имени секции в квадратных скобках
+                <li>секции содержат строки вида "ключевое слово = значение", с помощью которых задаются различные настройки программы
+                <li>все пустые строки и строки, начинающиеся с символа ';' (точка с запятой) игнорируются
+              </ul>
+            <li>Замечания:
+              <ol>
+                <li>Текущая версия BCDW использует только секцию <b>[Options]</b> остальные секции (если есть) игнорируются (кроме этого, BCDW игнорирует неизвестные ключевые слова в секции <b>[Options]</b>)
+                <li>В конфигурационном файле <b>\BootCat.Ini</b> так же используется пространство от начала файла до первой секции под каталог вариантов загрузки (см. описание файла <b>\BootCat.Ini</b>)
+              </ol>
+          </ul>
+    </a>
+
+    <a name=ini_main>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Конфигурационный файл \BCDW\bcdw.ini</b></font>
+      <tr>
+        <td>Конфигурационный файл <b>\BCDW\bcdw.ini</b> может содержать секцию <b>[Options]</b> с четырьмя ключевыми словами (а может и не содержать - все четыре ключевых слова и сама секция <b>[Options]</b> являются необязательными, т.е. простейший файл <b>\BCDW\bcdw.ini</b> это пустой файл).
+    </a>
+
+    <a name=ini_main_example>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Пример файла \BCDW\bcdw.ini.</b></font>
+      <tr>
+        <td>
+          <table cellspacing=0 cellpadding=0>
+            <tr><td>[Options]
+            <tr><td>Password&nbsp;=&nbsp;secret
+            <tr><td>Logo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;\BCDW\logo.gif
+            <tr><td>Font&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;\BCDW\FONTS\russian.fnt
+            <tr><td>CharSet&nbsp;&nbsp;=&nbsp;\BCDW\CHARSETS\cp1251r.cpf
+            <tr><td>RootMenu&nbsp;=&nbsp;\BootCat.Ini
+          </table>
+    </a>
+
+    <a name=ini_main_keywords>
+    <tr bgcolor=#005AEF>
+      <td><font color=#FFFFFF face=Arial>&nbsp;<b>Ключевые слова в файле \BCDW\bcdw.ini</b></font>
+    <tr>
+      <td>
+        <table>
+          <tr><td valign="top"><b>Password (или PasswordMD5Hash)</b><td>&nbsp;<td>
+            Задает пароль (или его MD5 Hash) на запуск BCDW.<br>
+
+          <tr><td valign="top"><b>Logo</b><td>&nbsp;<td>
+            BCDW, при запуске, может вывести на экран графическую заставку.<br>
+            Ключевое слово <b>Logo</b> указывает BCDW имя и расположение <b>*.gif</b> файла с этой заставкой.<br>
+            Файл с заставкой может быть анимационным <b>*.gif</b> файлом.<br>
+            Файл с заставкой не может иметь размер более ~500Kb.<br>
+            BCDW может выводить заставки в одном из следующих видеорежимов: 320x200x256, 640x480x256, 800x600x256, 1024x768x256, 1280x1024x256 и 1600x1200x256 (использует ближайший).<br>
+            Если картинка не помещается на экране, то она центрируется и усекается по краям.<br>
+            Если ключевое слово <b>Logo</b> отсутствует, то заставка не выводится.<br>
+            <br>
+            
+          <tr><td valign="top"><b>Font</b><td>&nbsp;<td>
+            При включении компьютера (или после перезагрузки), в видеоадаптер загружен стандартный английский (cp437) шрифт 8x16.<br>
+            BCDW, при запуске, позволяет загрузить в видеоадаптер шрифт с другим набором символов (например, с символами русского алфавита)
+            и/или шрифт с другой высотой символа (от высоты символа зависит количество строк на экране).<br>
+            Ключевое слово <b>Font</b> указывает BCDW имя и расположение файла с шрифтом, который необходимо загрузить.<br>
+            Размер файла с шрифтом может быть в пределах от 1024 байт (шрифт 8x4 - 100 строк на экране) до 8192 байт (шрифт 8x32 - 12 строк на экране).<br>
+            Если ключевое слово <b>Font</b> отсутствует, то BCDW использует стандартный шрифт видеоадаптера.<br>
+            <br>
+            В архиве с BCDW Вы можете найти следующие шрифты:
+            <table>
+              <tr><td><b>\BCDW\FONTS\russian.fnt</b><td>&nbsp;<td>Русский шрифт 8x16 (25 строк на экране)
+              <tr><td><b>\BCDW\FONTS\russian.f32</b><td>&nbsp;<td>Русский шрифт 8x32 (12 строк на экране)
+              <tr><td><b>\BCDW\FONTS\russian.f19</b><td>&nbsp;<td>Русский шрифт 8x19 (21 строк на экране)
+              <tr><td><b>\BCDW\FONTS\russian.f14</b><td>&nbsp;<td>Русский шрифт 8x14 (28 строк на экране)
+              <tr><td><b>\BCDW\FONTS\russian.f12</b><td>&nbsp;<td>Русский шрифт 8x12 (33 строк на экране)
+              <tr><td><b>\BCDW\FONTS\russian.f11</b><td>&nbsp;<td>Русский шрифт 8x11 (36 строк на экране)
+              <tr><td><b>\BCDW\FONTS\russian.f08</b><td>&nbsp;<td>Русский шрифт 8x8 (50 строк на экране)
+              <tr><td><b>\BCDW\FONTS\russian.f06</b><td>&nbsp;<td>Русский шрифт 8x6 (66 строк на экране)
+              <tr><td><b>\BCDW\FONTS\russian.f04</b><td>&nbsp;<td>Русский шрифт 8x4 (100 строк на экране)
+              <tr><td><b>\BCDW\FONTS\cyrillic.fnt</b><td>&nbsp;<td>Кириллический шрифт 8x16
+              <tr><td><b>\BCDW\FONTS\cyrillic.f14</b><td>&nbsp;<td>Кириллический шрифт 8x14
+              <tr><td><b>\BCDW\FONTS\cyrillic.f08</b><td>&nbsp;<td>Кириллический шрифт 8x8
+              <tr><td><b>\BCDW\FONTS\latin1.fnt</b><td>&nbsp;<td>Latin1 шрифт 8x16
+              <tr><td><b>\BCDW\FONTS\latin1.f14</b><td>&nbsp;<td>Latin1 шрифт 8x14
+              <tr><td><b>\BCDW\FONTS\latin1.f08</b><td>&nbsp;<td>Latin1 шрифт 8x8
+              <tr><td><b>\BCDW\FONTS\latin2.fnt</b><td>&nbsp;<td>Latin2 шрифт 8x16
+              <tr><td><b>\BCDW\FONTS\latin2.f14</b><td>&nbsp;<td>Latin2 шрифт 8x14
+              <tr><td><b>\BCDW\FONTS\latin2.f08</b><td>&nbsp;<td>Latin2 шрифт 8x8
+              <tr><td><b>\BCDW\FONTS\baltic.fnt</b><td>&nbsp;<td>Baltic шрифт 8x16
+              <tr><td><b>\BCDW\FONTS\baltic.f14</b><td>&nbsp;<td>Baltic шрифт 8x14
+              <tr><td><b>\BCDW\FONTS\baltic.f08</b><td>&nbsp;<td>Baltic шрифт 8x8
+              <tr><td><b>\BCDW\FONTS\turkish.fnt</b><td>&nbsp;<td>Turkish шрифт 8x16
+              <tr><td><b>\BCDW\FONTS\turkish.f14</b><td>&nbsp;<td>Turkish шрифт 8x14
+              <tr><td><b>\BCDW\FONTS\turkish.f08</b><td>&nbsp;<td>Turkish шрифт 8x8
+              <tr><td><b>\BCDW\FONTS\arabic.fnt</b><td>&nbsp;<td>Arabic шрифт 8x16
+              <tr><td><b>\BCDW\FONTS\arabic.f14</b><td>&nbsp;<td>Arabic шрифт 8x14
+              <tr><td><b>\BCDW\FONTS\arabic.f08</b><td>&nbsp;<td>Arabic шрифт 8x8
+              <tr><td><b>\BCDW\FONTS\hebrew.fnt</b><td>&nbsp;<td>Hebrew шрифт 8x16
+              <tr><td><b>\BCDW\FONTS\hebrew.f14</b><td>&nbsp;<td>Hebrew шрифт 8x14
+              <tr><td><b>\BCDW\FONTS\hebrew.f08</b><td>&nbsp;<td>Hebrew шрифт 8x8
+              <tr><td><b>\BCDW\FONTS\ibmpc.fnt</b><td>&nbsp;<td>Стандартный (cp437) шрифт IBM PC 8x16
+              <tr><td><b>\BCDW\FONTS\ibmpc.f14</b><td>&nbsp;<td>Стандартный (cp437) шрифт IBM PC 8x14
+              <tr><td><b>\BCDW\FONTS\ibmpc.f08</b><td>&nbsp;<td>Стандартный (cp347) шрифт IBM PC 8x8
+            </table>
+            <br>
+
+          <tr><td valign="top"><b>CharSet</b><td>&nbsp;<td>
+          В конфигурационном файле <b>\BootCat.Ini</b> вы можете использовать тексты и имена файлов не только на английском языке, но и на некоторых других национальных языках (например, русском).<br>
+          Для набора текстов на национальных языках, в различных операционных системах используются различные кодировки<br>
+          (например, для русского языка, как правило, используются следующие кодировки: в DOS - cp866, в Windows - cp1251, а в *NIX/Linux - KOI8-R).<br>
+          Для корректной обработки этих текстов и имен файлов (вывода на экран, поиска файлов на компакт-диске и т.п.) BCDW необходимо знать, какую кодировку Вы использовали при наборе файла <b>\BootCat.Ini</b>.<br>
+          Ключевое слово <b>CharSet</b> указывает BCDW имя и расположение файла с описанием использованной кодировки.<br>
+          Если ключевое слово <b>CharSet</b> отсутствует, то BCDW считает, что в файле <b>\BootCat.Ini</b> Вы использовали только английские тексты и имена файлов.<br>
+          <br>
+          В архиве с BCDW Вы можете найти файлы с описаниями следующих кодировок:
+            <table>
+              <tr><td><b>\BCDW\CHARSETS\cp1251r.cpf</b><td>&nbsp;<td>Русская кодировка Windows
+              <tr><td><b>\BCDW\CHARSETS\cp866.cpf</b><td>&nbsp;<td>Русская кодировка DOS
+              <tr><td><b>\BCDW\CHARSETS\koi8r.cpf</b><td>&nbsp;<td>Русская кодировка *NIX/Linux
+              <tr><td><b>\BCDW\CHARSETS\cp1251c.cpf</b><td>&nbsp;<td>Кириллическая кодировка Windows
+              <tr><td><b>\BCDW\CHARSETS\cp855.cpf</b><td>&nbsp;<td>Кириллическая кодировка DOS
+              <tr><td><b>\BCDW\CHARSETS\iso88595.cpf</b><td>&nbsp;<td>Кириллическая кодировка по ISO8859-5
+              <tr><td><b>\BCDW\CHARSETS\cp1252.cpf</b><td>&nbsp;<td>Latin1 кодировка Windows
+              <tr><td><b>\BCDW\CHARSETS\cp850.cpf</b><td>&nbsp;<td>Latin1 кодировка DOS
+              <tr><td><b>\BCDW\CHARSETS\iso88591.cpf</b><td>&nbsp;<td>Latin1 кодировка по ISO8859-1
+              <tr><td><b>\BCDW\CHARSETS\cp1250.cpf</b><td>&nbsp;<td>Latin2 кодировка Windows
+              <tr><td><b>\BCDW\CHARSETS\cp852.cpf</b><td>&nbsp;<td>Latin2 кодировка DOS
+              <tr><td><b>\BCDW\CHARSETS\iso88592.cpf</b><td>&nbsp;<td>Latin2 кодировка по ISO8859-2
+              <tr><td><b>\BCDW\CHARSETS\cp1257.cpf</b><td>&nbsp;<td>Baltic кодировка Windows
+              <tr><td><b>\BCDW\CHARSETS\cp775.cpf</b><td>&nbsp;<td>Baltic кодировка DOS
+              <tr><td><b>\BCDW\CHARSETS\iso885913.cpf</b><td>&nbsp;<td>Baltic кодировка по ISO8859-13
+              <tr><td><b>\BCDW\CHARSETS\cp1254.cpf</b><td>&nbsp;<td>Turkish кодировка Windows
+              <tr><td><b>\BCDW\CHARSETS\cp857.cpf</b><td>&nbsp;<td>Turkish кодировка DOS
+              <tr><td><b>\BCDW\CHARSETS\iso88599.cpf</b><td>&nbsp;<td>Turkish кодировка по ISO8859-9
+              <tr><td><b>\BCDW\CHARSETS\cp1256.cpf</b><td>&nbsp;<td>Arabic кодировка Windows
+              <tr><td><b>\BCDW\CHARSETS\cp864.cpf</b><td>&nbsp;<td>Arabic кодировка DOS
+              <tr><td><b>\BCDW\CHARSETS\iso88596.cpf</b><td>&nbsp;<td>Arabic кодировка по ISO8859-6
+              <tr><td><b>\BCDW\CHARSETS\cp1255.cpf</b><td>&nbsp;<td>Hebrew кодировка Windows
+              <tr><td><b>\BCDW\CHARSETS\cp862.cpf</b><td>&nbsp;<td>Hebrew кодировка DOS
+              <tr><td><b>\BCDW\CHARSETS\iso88598.cpf</b><td>&nbsp;<td>Hebrew кодировка по ISO8859-8
+              <tr><td><b>\BCDW\CHARSETS\cp437.cpf</b><td>&nbsp;<td>Стандартная (cp437) кодировка IBM PC
+            </table>
+          <br>
+
+          <tr><td valign="top"><b>RootMenu</b><td>&nbsp;<td>
+          По умолчанию, BCDW ищет описание загрузочного меню в файле <b>\BootCat.Ini</b>.<br>
+          Вы можете изменить имя и расположение этого файла (например, на <b>\BCDW\BootCat.Ini</b>).<br>
+          Ключевое слово <b>RootMenu</b> указывает BCDW, какой файл необходимо использовать.<br>
+        </table>
+    </a>
+
+    <a name=ini_menu>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Конфигурационный файл \BootCat.Ini</b></font>
+      <tr>
+        <td>
+        Файл <b>\BootCat.Ini</b> (и другие файлы с описаниями меню) состоит из двух частей:
+        <ul>
+          <li><a href=#ini_menu_bc>Каталога вариантов загрузки</a> - строк между началом файла и первой секцией в файле (или концом файла, если секций в файле нет)
+          <li>Необязательной секции <b>[Options]</b> с <a href=#ini_menu_ui>описанием внешнего вида интерфейса</a>
+        </ul>
+    </a>
+
+    <a name=ini_menu_example>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Пример файла \BootCat.Ini</b></font>
+      <tr>
+        <td>
+          <table cellspacing=0 cellpadding=0>
+            <tr><td>&nbsp;
+            <tr><td>; *** Каталог вариантов загрузки
+            <tr><td>&nbsp;
+            <tr><td>C:\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;Загрузка с диска C:&nbsp;&nbsp;&nbsp;;&nbsp;Загрузка с жесткого диска.^
+            <tr><td>A:\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;Загрузка с диска A:&nbsp;&nbsp;&nbsp;;&nbsp;Загрузка с дисковода.^
+            <tr><td>\BootCat2.Ini&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;Подменю&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;Другой BootCat.Ini^
+            <tr><td>\floppy.ima&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;Загрузка с *.IMA образа дискеты (WinImage)
+            <tr><td>\logical.ima&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;Загрузка с *.IMA образа логического диска (WinImage)
+            <tr><td>\hdd.img&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Загрузка с образа жесткого диска (DskRead)
+            <tr><td>\acronis.wbt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;Загрузка с *.WBT образа (WinISO)
+            <tr><td>\nt5boot.bin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;Запуск загрузочного сектора Windows XP/2000/NT
+            <tr><td>\i386\setupldr.bin&nbsp;&nbsp;;&nbsp;Запуск программы установки Windows XP/2000/NT
+            <tr><td>\dos4bcdw.ima&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;Volkov Commander&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;note1&nbsp;;&nbsp;\vc\vc.com
+            <tr><td>\dos4bcdw.ima&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;Установка Windows 9x&nbsp;&nbsp;;&nbsp;note1&nbsp;;&nbsp;\win9x\setup.exe
+            <tr><td>/isolinux.bin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;Запуск ядра Linux&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;note2&nbsp;;&nbsp;/linux/kernel
+            <tr><td>/isolinux.bin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;Запуск memdisk&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;note2&nbsp;;&nbsp;/memdisk /test.img
+            <tr><td>/cdsh/loader.bin&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;Сценарий CD Shell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;note2&nbsp;;&nbsp;script /test.scr
+            <tr><td>/bscript/loader.bin&nbsp;;&nbsp;Сценарий BootScriptor&nbsp;;&nbsp;note2&nbsp;;&nbsp;script /test.ini
+            <tr><td>/diskem1x.bin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;Сценарий diskem1x.bin&nbsp;;&nbsp;note2&nbsp;;&nbsp;batch test.cmd
+            <tr><td>:return&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;Возврат из подменю&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;note3
+            <tr><td>:reboot&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;Перезагрузка&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;note3
+            <tr><td>:restart&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;Switch to English&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;note4&nbsp;;&nbsp;\BCDW\bcdw_eng.ini
+            <tr><td>&nbsp;
+            <tr><td>; *** Настройки внешнего вида интерфейса
+            <tr><td>&nbsp;
+            <tr><td>[Options]
+            <tr><td>&nbsp;
+            <tr><td>; *** Настройки фона под окнами
+            <tr><td>&nbsp;
+            <tr><td>BGColors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 00, 80, 80, 80
+            <tr><td>BGSymbol&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 32
+            <tr><td>TopText&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+            <tr><td>BottomText&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+            <tr><td>&nbsp;
+            <tr><td>; *** Настройки окна "Вариант загрузки"
+            <tr><td>&nbsp;
+            <tr><td>MenuPosition&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 02, 05, 76, 13
+            <tr><td>MenuColors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= f9, 9f, 1f, f0, 0f, fd, f9
+            <tr><td>MenuBorderStyle&nbsp;&nbsp;&nbsp;= 5
+            <tr><td>MenuShadowStyle&nbsp;&nbsp;&nbsp;= 2
+            <tr><td>MenuTitle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= Вариант загрузки
+            <tr><td>MenuDefault&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 0
+            <tr><td>MenuTimerLabel&nbsp;&nbsp;&nbsp;&nbsp;= Осталось времени:
+            <tr><td>MenuTimer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 30
+            <tr><td>&nbsp;
+            <tr><td>; *** Настройки окна "О варианте загрузки"
+            <tr><td>&nbsp;
+            <tr><td>HelpPosition&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 02, 19, 76, 05
+            <tr><td>HelpColors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= e0, 9f, 1f, e0, 0f, e0
+            <tr><td>HelpBorderStyle&nbsp;&nbsp;&nbsp;= 5
+            <tr><td>HelpShadowStyle&nbsp;&nbsp;&nbsp;= 2
+            <tr><td>HelpTabSkip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 0
+            <tr><td>HelpTitle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= О варианте загрузки
+            <tr><td>&nbsp;
+            <tr><td>; *** Настройки окна "О компакт-диске"
+            <tr><td>&nbsp;
+            <tr><td>AboutPosition&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 02, 01, 76, 03
+            <tr><td>AboutColors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= e0, 9f, 1f, e0, 0f, e0
+            <tr><td>AboutBorderStyle&nbsp;&nbsp;= 5
+            <tr><td>AboutShadowStyle&nbsp;&nbsp;= 2
+            <tr><td>AboutTabSkip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 0
+            <tr><td>AboutTitle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= О компакт-диске
+            <tr><td>AboutText&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= ~
+            <tr><td> Аварийный загрузочный диск
+            <tr><td>~
+            <tr><td>&nbsp;
+            <tr><td>; *** Настройки окна "Бегущая строка"
+            <tr><td>&nbsp;
+            <tr><td>ScrollPosition&nbsp;&nbsp;&nbsp;&nbsp;= 00, 00, 80, 01
+            <tr><td>ScrollColors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 87, 87, 87, 87, 0f, 87
+            <tr><td>ScrollBorderStyle&nbsp;= 0
+            <tr><td>ScrollShadowStyle&nbsp;= 0
+            <tr><td>ScrollTabSkip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 1
+            <tr><td>ScrollMode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 0
+            <tr><td>ScrollTitle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+            <tr><td>ScrollText&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= ~
+            <tr><td>Текст бегущей строки
+            <tr><td>~
+            <tr><td>&nbsp;
+            <tr><td>; *** Комментарии к вариантам загрузки
+            <tr><td>&nbsp;
+            <tr><td>note1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= ~
+            <tr><td>BCDW позволяет запускать DOS-программы с компакт-диска
+            <tr><td>(требуется специальный загрузочный образ dos4bcdw.ima)
+            <tr><td>~
+            <tr><td>note2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= ~
+            <tr><td>BCDW позволяет запускать программы ISOLinux, CD Shell, BootScriptor,
+            <tr><td>diskem1x.bin или аналогичные и передавать им команды для выполнения
+            <tr><td>~
+            <tr><td>note3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= ~
+            <tr><td>BCDW поддерживает ряд команд позволяющих управлять работой программы
+            <tr><td>~
+            <tr><td>note4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= ~
+            <tr><td>Команда :restart позволяет перезапустить BCDW с другими настройками
+            <tr><td>(например, для переключения языка интерфейса)
+            <tr><td>~
+          </table>
+    </a>
+
+    <a name=ini_menu_bc>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Каталог вариантов загрузки в файле \BootCat.Ini</b></font>
+      <tr>
+        <td>
+        Каталог вариантов загрузки представляет собой набор строк, каждая из которых описывает один вариант загрузки.
+        Каждая строка состоит из нескольких частей (в текущей версии BCDW - из четырех)
+        разделенных символом ';' (точка с запятой):<br>
+        <br>
+        часть 1 ; часть 2 ; часть 3 ; часть 4<br>
+        <br>
+        <ol>
+          <li><a href=#ini_menu_bc_submenus>Имя файла с описанием подменю</a> или <a href=#ini_menu_bc_images>имя файла с загрузочным образом</a> или <a href=#ini_menu_bc_commands>управляющая команда BCDW</a>
+          <li>Название варианта загрузки
+          <li>Текст комментария к варианту загрузки ( ^ - разделитель строк) или ключевое слово из секции [Options] с текстом комментария
+          <li><a href=#ini_menu_bc_parameters>Параметр для загрузочного образа</a> или управляющей команды BCDW
+        </ol>
+        Все части описания, кроме первой, являются необязательными.
+    </a>
+
+    <a name=ini_menu_bc_submenus>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Имена и формат файлов с описаниями подменю</b></font>
+      <tr>
+        <td>
+        Файлы с описаниями подменю могут иметь любые <b>*.ini</b> имена.
+        Формат этих файлов идентичен формату файла <b>\BootCat.Ini</b>.
+    </a>
+              
+    <a name=ini_menu_bc_images>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Имена и форматы файлов с загрузочными образами</b></font>
+      <tr>
+        <td>
+        Файлы с загрузочными образами могут иметь любые имена, кроме <b>*.ini</b>.<br>
+        BCDW поддерживает следующие форматы загрузочных образов:<br>
+        <ul>
+          <li>Образы дискет и логических дисков произвольного объема (до 8Gb) с файловой системой FAT(12/16/32). Например, <b>*.ima</b> файлы создаваемые программой <a href=http://www.winimage.com target=_blank>WinImage</a>. (<a href=http://bootcd.narod.ru/images.htm#fdd>примеры</a>)
+          <li>Образы дискет емкостью 160Kb, 180Kb, 320Kb, 360Kb, 720Kb, 820Kb, 1.2Mb, 1.44Mb, 1.68Mb, 1.72Mb, 2.88Mb с файловой системой отличной от FAT
+          <li>Образы жестких дисков с произвольным количеством разделов (<a href=http://bootcd.narod.ru/images.htm#hdd>примеры</a>)
+          <li>Программы с адресом загрузки 07c0:0000 (например, загрузочные сектора с компакт-дисков Microsoft Windows XP/2000/NT <a href=http://bootcd.narod.ru/nt5boot.bin><b>nt5boot.bin</b></a>, <a href=http://bootcd.narod.ru/nt4boot.bin><b>nt4boot.bin</b></a>, w2ksect.bin, xpboot.bin и т.п.)
+          <li>Программы с адресом загрузки 07c0:0000 и таблицей "Boot Info Table" (например, программа <b>isolinux.bin</b>)
+          <li>Загрузчик программы установки Microsoft Windows XP/2000/NT (файл <b>\i386\setupldr.bin</b>)
+        </ul>
+    </a>
+    
+    <a name=ini_menu_bc_commands>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Управляющие команды BCDW</b></font>
+      <tr>
+        <td>
+        Вместо имени файла с загрузочным образом, Вы можете указать управляющую команду BCDW.
+        Текущая версия BCDW поддерживает следующие команды:<br><br>
+        <table>
+          <tr><td valign="top"><b>A:\</b><td>&nbsp;<td>Загрузиться с реального дисковода. Команда не требует параметра.
+          <tr><td valign="top"><b>C:\</b><td>&nbsp;<td>Загрузиться с реального жесткого диска. Команда не требует параметра.
+          <tr><td valign="top"><b>:Reboot</b><td>&nbsp;<td>Перезагрузить компьютер. Команда не требует параметра.
+          <tr><td valign="top"><b>:Restart</b><td>&nbsp;<td>Перезапустить BCDW с другими настройками. Команда требует параметр - имя файла с настройками (имя другого <b>\BCDW\bcdw.ini</b>).
+          <tr><td valign="top"><b>:Return</b><td>&nbsp;<td>Вернуться из подменю. Команда не требует параметра.
+          <tr><td valign="top"><b>:Nop</b><td>&nbsp;<td>Ничего не делать. Команда не требует параметра.
+          <tr><td valign="top"><b>:</b><td>&nbsp;<td>То же самое, что и :nop, но вариант загрузки с этой командой невозможно выбрать (недоступный пункт меню). Команда не требует параметра.
+        </table>
+    </a>
+
+    <a name=ini_menu_bc_parameters>
+    <tr bgcolor=#005AEF>
+      <td><font color=#FFFFFF face=Arial>&nbsp;<b>Параметры для загрузочных образов</b></font>
+    <tr>
+      <td>
+      Загрузочные образы не поддерживают прием параметров, но с помощью BCDW Вы можете передать параметры некоторым из них, а именно:
+      <ol>      
+        <li>Специальному загрузочному образу <b>dos4bcdw.ima</b> (<a href=#dos4bcdw>как создать этот образ?</a>) - имя DOS-программы на компакт-диске для запуска
+        <li>Программе <b>ISOLinux</b> - команду для выполнения (<a href=#isolinux>подробности</a>)
+        <li>Программе <b>CD Shell</b> - команду для выполнения (<a href=#cdshell>подробности</a>)
+        <li>Программе <b>BootScriptor</b> - команду для выполнения (<a href=#bootscriptor>подробности</a>)
+        <li>Программе <b>diskem1x.bin</b> - команду для выполнения (<a href=#diskemu>подробности</a>)
+      </ol>
+    </a>
+
+    <a name=ini_menu_ui>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Описание внешнего вида интерфейса в файле \BootCat.Ini</b></font>
+      <tr>
+        <td>
+        Интерфейс BCDW состоит из четырех окон: окна "Вариант загрузки" в котором отображается загрузочное меню,
+        окна "О варианте загрузки" в котором отображается описание выбранного пункта загрузочного меню и окон "О компакт-диске"
+        и "Бегущая строка" в которых может быть отображена произвольная текстовая информация. Все окна, кроме
+        окна "Вариант загрузки" являются необязательными. Настраивается интерфейс с помощью ключевых слов в
+        секции <b>[Options]</b>:
+
+      <tr>
+        <td>
+          <table>
+            <tr><td valign="top">&nbsp;<td>&nbsp;<td><b>*** Фон под окнами</b>
+            <tr><td valign="top">&nbsp;<td>&nbsp;<td>&nbsp;
+            <tr><td valign="top"><b>BGColors<td>&nbsp;<td>
+            Цвета фона под окнами<br><br>
+            = C1, C2, C3, C4<br><br>
+            C1 - Цвет бордюра вокруг экрана<br>
+            C2 - Цвет фона<br>
+            C3 - Цвет верхней строки<br>
+            C4 - Цвет нижней строки<br>
+            <br>
+            <tr><td valign="top"><b>BGSymbol</b><td>&nbsp;<td>
+            Десятичный код символа-заполнителя фона.<br>
+            Наиболее употребительные символы: 32, 176, 177, 178<br>
+            Прозрачный фон: 0<br>
+            <br>
+            <tr><td valign="top"><b>TopText</b><td>&nbsp;<td>
+            Текст верхней строки<br>
+            <br>
+            <tr><td valign="top"><b>BottomText</b><td>&nbsp;<td>
+            Текст нижней строки<br>
+            <br>
+
+            <tr><td valign="top">&nbsp;<td>&nbsp;<td><b>*** Окно "Вариант загрузки"</b>
+            <tr><td valign="top">&nbsp;<td>&nbsp;<td>&nbsp;
+            <tr><td valign="top"><b>MenuPosition</b><td>&nbsp;<td>
+            Расположение и размеры окна<br><br>
+            = X, Y, W, H<br><br>
+            X - От левого края<br>
+            Y - От верхнего края<br>
+            W - Ширина<br>
+            H - Высота<br>
+            <br>
+            <tr><td valign="top"><b>MenuColors</b><td>&nbsp;<td>
+            Цвета элементов окна<br><br>
+            = C1, C2, C3, C4, C5, C6, C7<br><br>
+            C1 - Цвет рамки<br>
+            C2 - Цвет заголовка после получения фокуса<br>
+            C3 - Цвет заголовка после потери фокуса<br>
+            C4 - Цвет пунктов меню<br>
+            C5 - Цвет текущего пункта меню после получения фокуса<br>
+            C6 - Цвет текущего пункта меню после потери фокуса<br>
+            C7 - Цвет недоступных пунктов меню<br>
+            <br>
+            <tr><td valign="top"><b>MenuBorderStyle</b><td>&nbsp;<td>
+            Стиль рамки окна: 0, 1, 2, 3, 4, 5 (0 - без рамки)<br><br>
+            <tr><td valign="top"><b>MenuShadowStyle</b><td>&nbsp;<td>
+            Стиль тени под окном: 0, 1, 2 (0 - без тени)<br><br>
+            <tr><td valign="top"><b>MenuTitle</b><td>&nbsp;<td>
+            Текст заголовка окна<br><br>
+            <tr><td valign="top"><b>MenuDefault</b><td>&nbsp;<td>
+            Индекс пункта меню по умолчанию: 0-255<br><br>
+            <tr><td valign="top"><b>MenuTimerLabel</b><td>&nbsp;<td>
+            Подпись таймера<br><br>
+            <tr><td valign="top"><b>MenuTimer</b><td>&nbsp;<td>
+            Задержка в секундах перед автоматической загрузкой<br><br>
+
+            <tr><td valign="top">&nbsp;<td>&nbsp;<td><b>*** Окно "О варианте загрузки"</b>
+            <tr><td valign="top">&nbsp;<td>&nbsp;<td>&nbsp;
+            <tr><td valign="top"><b>HelpPosition</b><td>&nbsp;<td>
+            Расположение и размеры окна<br><br>
+            = X, Y, W, H<br><br>
+            X - От левого края<br>
+            Y - От верхнего края<br>
+            W - Ширина<br>
+            H - Высота<br>
+            <br>
+            <tr><td valign="top"><b>HelpColors</b><td>&nbsp;<td>
+            Цвета элементов окна<br><br>
+            = C1, C2, C3, C4, C5, C6<br><br>
+            C1 - Цвет рамки<br>
+            C2 - Цвет заголовка после получения фокуса<br>
+            C3 - Цвет заголовка после потери фокуса<br>
+            C4 - Цвет строк<br>
+            C5 - Цвет текущей строки после получения фокуса<br>
+            C6 - Цвет текущей строки после потери фокуса<br>
+            <br>
+            <tr><td valign="top"><b>HelpBorderStyle</b><td>&nbsp;<td>
+            Стиль рамки окна: 0, 1, 2, 3, 4, 5 (0 - без рамки)<br><br>
+            <tr><td valign="top"><b>HelpShadowStyle</b><td>&nbsp;<td>
+            Стиль тени под окном: 0, 1, 2 (0 - без тени)<br><br>
+            <tr><td valign="top"><b>HelpTabSkip</b><td>&nbsp;<td>
+            Пропуск окна при переключении по Tab: 0 - выкл., 1 - вкл.<tr><tr>
+            <tr><td valign="top"><b>HelpTitle</b><td>&nbsp;<td>
+            Текст заголовка окна<br><br>
+        
+            <tr><td valign="top">&nbsp;<td>&nbsp;<td><b>*** Окно "О компакт-диске"</b>
+            <tr><td valign="top">&nbsp;<td>&nbsp;<td>&nbsp;
+            <tr><td valign="top"><b>AboutPosition</b><td>&nbsp;<td>
+            Расположение и размеры окна<br><br>
+            = X, Y, W, H<br><br>
+            X - От левого края<br>
+            Y - От верхнего края<br>
+            W - Ширина<br>
+            H - Высота<br>
+            <br>
+            <tr><td valign="top"><b>AboutColors</b><td>&nbsp;<td>
+            Цвета элементов окна<br><br>
+            = C1, C2, C3, C4, C5, C6<br><br>
+            C1 - Цвет рамки<br>
+            C2 - Цвет заголовка после получения фокуса<br>
+            C3 - Цвет заголовка после потери фокуса<br>
+            C4 - Цвет строк<br>
+            C5 - Цвет текущей строки после получения фокуса<br>
+            C6 - Цвет текущей строки после потери фокуса<br>
+            <br>
+            <tr><td valign="top"><b>AboutBorderStyle</b><td>&nbsp;<td>
+            Стиль рамки окна: 0, 1, 2, 3, 4, 5 (0 - без рамки)<br><br>
+            <tr><td valign="top"><b>AboutShadowStyle</b><td>&nbsp;<td>
+            Стиль тени под окном: 0, 1, 2 (0 - без тени)<br><br>
+            <tr><td valign="top"><b>AboutTabSkip</b><td>&nbsp;<td>
+            Пропуск окна при переключении по Tab: 0 - выкл., 1 - вкл.<br><br>
+            <tr><td valign="top"><b>AboutTitle</b><td>&nbsp;<td>
+            Текст заголовка окна<br><br>
+            <tr><td valign="top"><b>AboutText</b><td>&nbsp;<td>
+            Содержимое окна<br><br>
+        
+            <tr><td valign="top">&nbsp;<td>&nbsp;<td><b>*** Окно "Бегущая строка"</b>
+            <tr><td valign="top">&nbsp;<td>&nbsp;<td>&nbsp;
+            <tr><td valign="top"><b>ScrollPosition</b><td>&nbsp;<td>
+            Расположение и размеры окна<br><br>
+            = X, Y, W, H<br><br>
+            X - От левого края<br>
+            Y - От верхнего края<br>
+            W - Ширина<br>
+            H - Высота<br>
+            <br>
+            <tr><td valign="top"><b>ScrollColors</b><td>&nbsp;<td>
+            Цвета элементов окна<br><br>
+            = C1, C2, C3, C4, C5, C6<br><br>
+            C1 - Цвет рамки<br>
+            C2 - Цвет заголовка после получения фокуса<br>
+            C3 - Цвет заголовка после потери фокуса<br>
+            C4 - Цвет строк<br>
+            C5 - Цвет текущей строки после получения фокуса<br>
+            C6 - Цвет текущей строки после потери фокуса<br>
+            <br>
+            <tr><td valign="top"><b>ScrollBorderStyle</b><td>&nbsp;<td>
+            Стиль рамки окна: 0, 1, 2, 3, 4, 5 (0 - без рамки)<br><br>
+            <tr><td valign="top"><b>ScrollShadowStyle</b><td>&nbsp;<td>
+            Стиль тени под окном: 0, 1, 2 (0 - без тени)<br><br>
+            <tr><td valign="top"><b>ScrollTabSkip</b><td>&nbsp;<td>
+            Пропуск окна при переключении по Tab: 0 - выкл., 1 - вкл.<br><br>
+            <tr><td valign="top"><b>ScrollMode</b><td>&nbsp;<td>
+            Режим окна: 0 - бегущая строка, 1 - окно с текстом<br><br>
+            <tr><td valign="top"><b>ScrollTitle</b><td>&nbsp;<td>
+            Текст заголовка окна<br><br>
+            <tr><td valign="top"><b>ScrollText</b><td>&nbsp;<td>
+            Содержимое окна<br><br>
+
+            <tr><td valign="top">&nbsp;<td>&nbsp;<td><b>*** Цвета</b>
+            <tr><td valign="top">&nbsp;<td>&nbsp;<td>&nbsp;
+            <tr><td valign="top"><b>C1, C2, C3, C4, C5, C6, C7</b><td>&nbsp;<td>
+            Цвета обозначаются парой символов. Первый символ - цвет заднего плана, второй символ - цвет переднего плана.
+            Соответствие символов и цветов:<br>
+            0 - Black<br>
+            1 - Blue<br>
+            2 - Green<br>
+            3 - Cyan<br>
+            4 - Red<br>
+            5 - Magenta<br>
+            6 - Brown<br>
+            7 - LGrey<br>
+            8 - DGrey<br>
+            9 - LBlue<br>
+            A - LGreen<br>
+            B - LCyan<br>
+            C - LRed<br>
+            D - LMagenta<br>
+            E - Yellow<br>
+            F - White<br>
+          </table>
+    </a>
+    
+    <a name=copycd></a>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Как переписать программу с загрузочного компакт-диска на компакт-диск с BCDW?</b></font>
+      <tr>
+        <td>
+        Некоторые программы позволяют создать загрузочные компакт-диски (например, программы <b>Acronis</b>).<br>
+        Для того, что бы переписать такие программы на компакт-диск с BCDW сделайте следующее:<br>
+        <ol>      
+          <li>Перепишите все файлы и папки с загрузочного компакт-диска на компакт-диск с BCDW (на компакт-дисках Acronis файлов нет - ничего переписывать не надо)
+          <li>С помощью <a href=http://www.winiso.com target=_blank>WinISO</a> создайте <b>*.iso</b> образ загрузочного компакт-диска (пункт "Make ISO from CDROM" в меню "Actions")
+          <li>Откройте созданный <b>*.iso</b> образ (пункт "Open" в меню "File")
+          <li>Сохраните загрузочную информацию в <b>*.wbt</b> файл (пункт "Save boot information to file..." в меню "Bootable CD")
+          <li>Поместите созданный <b>*.wbt</b> файл на компакт-диск с BCDW
+          <li>Добавьте в <b>\BootCat.ini</b> описание варианта загрузки аналогичное этому:<br>
+              <br>
+              \acronis.wbt ; Программа Acronis<br>
+              <br>
+        </ol>
+        Описание с иллюстрациями см. <a href=http://bootcd.narod.ru/copyboot.htm>здесь</a>
+    </a>    
+
+    <a name=copyfd1x>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Как переписать программу с загрузочной дискеты на компакт-диск с BCDW?</b></font>
+      <tr>
+        <td>
+        Некоторые программы позволяют создать загрузочные дискеты (например, <b>Ontrack EasyRecovery</b>, <b>Norton Ghost</b> и т.д.).<br>
+        Для того, что бы переписать такие программы на компакт-диск с BCDW сделайте следующее:<br>
+        <ol>
+          <li>Создайте <b>*.ima</b> образ этой дискеты (<a href=#imamake>как это сделать?</a>)
+          <li>Поместите созданный <b>*.ima</b> образ на компакт-диск с BCDW
+          <li>Добавьте в <b>\BootCat.ini</b> описание варианта загрузки аналогичное этим:<br>
+              <br>
+              \er.ima    ; Easy Recovery<br>
+              \ghost.ima ; Norton Ghost<br>
+              <br>
+        </ol>
+    </a>      
+
+    <a name=copyfd2x>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Как переписать программу с двух загрузочных дискет по 1.44mb на компакт-диск с BCDW?</b></font>
+      <tr>
+        <td>
+        Некоторые программы позволяют создать две загрузочных дискеты по 1.44mb (например, <b>PowerQuest Partition Magic</b>).<br>
+        Для того, что бы переписать такие программы на компакт-диск с BCDW сделайте следующее:<br>
+        <ol>
+          <li>Вставьте первую дискету в дисковод
+          <li>С помощью <a href=http://www.winimage.com target=_blank>WinImage</a> считайте эту дискету (пункт "Read disk" в меню "Disk")
+          <li>Измените формат образа дискеты на 2.88Mb (пункт "Change format..." в меню "Image")
+          <li>Вставьте вторую дискету в дисковод
+          <li>Перетащите все файлы со второй дискеты в окно <a href=http://www.winimage.com target=_blank>WinImage</a>
+          <li>Сохраните образ дискеты в <b>*.ima</b> формате (пункт "Save as..." в меню "File")
+          <li>Поместите созданный <b>*.ima</b> образ на компакт-диск с BCDW
+          <li>Добавьте в <b>\BootCat.ini</b> описание варианта загрузки аналогичное этому:<br>
+              <br>
+              \pmagic.ima ; PowerQuest Partition Magic<br>
+              <br>
+        </ol>
+    </a>
+
+    <a name=wntsetup>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Как добавить программу установки Microsoft Windows XP/2000/NT на компакт-диск с BCDW?</b></font>
+      <tr>
+        <td>
+        <ol>
+          <li>Перепишите на Ваш компакт-диск все файлы и папки с <i>оригинального</i> компакт-диска <b>Microsoft Windows XP/2000/NT</b>
+          <li>Добавьте в файл <b>\BootCat.ini</b> следующее описание варианта загрузки:<br>
+              <br>
+              \I386\setupldr.bin ; Установка Microsoft Windows XP/2000/NT<br>
+              <br>
+        </ol>
+      <tr>
+        <td>Вы можете переписать не все папки и файлы с оригинального компакт-диска Microsoft Windows XP/2000/NT.
+      <tr>
+        <td>О том, какие именно файлы и папки необходимо переписать см. <a href=http://bootcd.narod.ru/ntbootcd.htm>здесь</a>
+      <tr>
+        <td>О том, как добавить несколько программ установки Microsoft Windows XP/2000/NT см. <a href=http://bootcd.narod.ru/ntmultibootcd.htm>здесь</a>
+    </a>
+
+    <a name=winpe>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Как добавить программу Microsoft Windows PE на компакт-диск с BCDW?</b></font>
+      <tr>
+        <td>
+        <ol>
+          <li>Перепишите на Ваш компакт-диск все файлы и папки с компакт-диска <b>Microsoft Windows PE</b>
+          <li>Переименуйте папку <b>\I386</b> в <b>\WNPE</b>
+          <li>С помощью любого HEX-редактора (например, <a href=http://www.winhex.com target=_blank>WinHex</a>) замените в файле <b>\WNPE\setupldr.bin</b> <i>ВСЕ</I> строки <b>I386</b> на <b>WNPE</b>;
+          <li>Добавьте в файл <b>\BootCat.ini</b> следующее описание варианта загрузки:<br>
+              <br>
+              \WNPE\setupldr.bin ; Microsoft Windows PE
+              <br>
+        </ol>
+    </a>
+
+    <a name=erdc>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Как добавить программу ERD Commamder на компакт-диск с BCDW?</b></font>
+      <tr>
+        <td>
+        <ol>
+          <li>Перепишите на Ваш компакт-диск все файлы и папки с компакт-диска <b>ERD Commander</b>
+          <li>Переименуйте папку <b>\I386</b> в <b>\ERDC</b>
+          <li>С помощью любого HEX-редактора (например, <a href=http://www.winhex.com target=_blank>WinHex</a>) замените в файле <b>\ERDC\setupldr.bin</b> <i>ВСЕ</I> строки <b>I386</b> на <b>ERDC</b>;
+          <li>Добавьте в файл <b>\BootCat.ini</b> следующее описание варианта загрузки:<br>
+              <br>
+              \ERDC\setupldr.bin ; ERD Commander
+              <br>
+        </ol>
+    </a>
+
+    <a name=oobc>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Как добавить программу O&O BlueCon на компакт-диск с BCDW?</b></font>
+      <tr>
+        <td>
+        <ol>
+          <li>Перепишите на Ваш компакт-диск все файлы и папки с компакт-диска <b>O&O BlueCon</b>
+          <li>Переименуйте папку <b>\I386</b> в <b>\OOBC</b>
+          <li>С помощью любого HEX-редактора (например, <a href=http://www.winhex.com target=_blank>WinHex</a>) замените в файле <b>\OOBC\setupldr.bin</b> <i>ВСЕ</I> строки <b>I386</b> на <b>OOBC</b>;
+          <li>Добавьте в файл <b>\BootCat.ini</b> следующее описание варианта загрузки:<br>
+              <br>
+              \OOBC\setupldr.bin ; O&O BlueCon
+              <br>
+        </ol>
+    </a>
+
+    <a name=acronis>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Как <b>добавить программу от Acronis</b> на компакт-диск с BCDW?</b></font>
+      <tr>
+        <td>
+          <ol>
+            <li>Создайте загрузочный компакт-диск с этой программой
+            <li>Перепишите программу с загрузочного компакт-диска на компакт-диск с BCDW (<a href=#copycd>как это сделать?</a>)
+          </ol>
+    </a>
+
+    <a name=dosstart>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Как добавить DOS-программу на компакт-диск с BCDW?</b></font>
+      <tr>
+        <td>см. два следующих пункта...
+    </a>
+
+    <a name=w9xsetup>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Как добавить программу установки Microsoft Windows 9x/Me на компакт-диск с BCDW?</b></font>
+      <tr>
+        <td>
+        <ol>
+          <li>Поместите на компакт-диск дистрибутив <b>Microsoft Windows 9x/Me</b> в папку <b>\Win9x</b>
+          <li>Поместите в корневую папку компакт-диска специальный загрузочный образ <b>dos4bcdw.ima</b> (<a href=#dos4bcdw>как создать этот образ?</a>)
+          <li>Добавьте в файл <b>\BootCat.ini</b> следующее описание варианта загрузки:<br>
+              <br>
+              \dos4bcdw.ima ; Установка Microsoft Windows 9x/Me ; ; \Win9x\setup.exe<br>
+              <br>
+        </ol>
+    </a>
+
+    <a name=vc>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Как добавить Volkov Commander на компакт-диск с BCDW?</b></font>
+      <tr>
+        <td>
+        <ol>
+          <li>Поместите на компакт-диск файлы <b>Volkov Commander</b> в папку <b>\VC</b>
+          <li>Поместите в корневую папку компакт-диска специальный загрузочный образ <b>dos4bcdw.ima</b> (<a href=#dos4bcdw>как создать этот образ?</a>)
+          <li>Добавьте в файл <b>\BootCat.ini</b> следующее описание варианта загрузки:<br>
+              <br>
+              \dos4bcdw.ima ; Volkov Commander ; ; \VC\vc.com<br>
+              <br>
+          </ol>
+    </a>
+    
+    <a name=dos4bcdw>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Как создать специальный загрузочный образ dos4bcdw.ima?</b></font>
+      <tr>
+        <td>
+          <ol>
+            <li>Создайте аварийную дискету Microsoft Windows 98SE (Мой компьютер - Панель управления - Установка/удаление программ - Загрузочный диск)
+            <li>Перепишите на эту дискету файлы <b>bcdw_cl.com</b>, <b>autoexec.bat</b> и <b>config.sys</b> из архива с BCDW
+            <li>Сохраните образ этой дискеты под именем <b>dos4bcdw.ima</b> (<a href=#imamake>как это сделать?</a>)
+          </ol>
+      <tr>
+        <td>
+        Если Вы хотите использовать загрузочную дискету с другой версией DOS (PC-DOS, DR-DOS, FreeDOS и т.д.), то перепишите только файл <b>bcdw_cl.com</b> и добавьте в конец файла <b>autoexec.bat</b> на загрузочной дискете следующие строки:
+      <tr>
+        <td>
+        echo Looking for bootable CD...<br>
+        BCDW_CL.COM<br>
+        if errorlevel 1 goto NO_BCDW_CL<br>
+        echo Loading DOS-program...<br>
+        %BCDW_CDROM%:<br>
+        call %BCDW_CL%<br>
+        :NO_BCDW_CL<br>
+    </a>
+
+    <a name=imamake>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Как создать образ дискеты или логического диска?</b></font>
+      <tr>
+        <td>
+          <ol>
+            <li>Запустите программу <a href=http://www.winimage.com target=_blank>WinImage</a>
+            <li>Выберите дискету или логический диск в меню "Disk"
+            <li>Считайте дискету или логический диск с помощью пункта "Read Disk" в меню "Disk"
+            <li>Сохраните образ в <b>*.ima</b> формате с помощью пункта "Save as..." в меню "File"
+          </ol>
+          Описание с иллюстрациями см. <a href=http://bootcd.narod.ru/imgmake.htm>здесь</a>.
+    </a>
+
+    <a name=customfd>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Как создать загрузочный образ произвольного объема (например, более 2.88Mb)?</b></font>
+      <tr>
+        <td>
+          <ol>
+            <li>Создайте на Вашем жестком диске логический диск FAT16 необходимого объема (например, с помощью Acronis PartitionExpert или PowerQuest Partition Magic)
+            <li>Перенесите на этот логический диск системные файлы
+            <li>Скопируйте на этот логический диск все прочие файлы 
+            <li>Создайте <b>*.ima</b> образ этого логического диска (<a href=#imamake>как это сделать?</a>)
+          </ol>
+          Примеры загрузочных образов объемом ~700mb, ~650mb, ~300mb, ~100mb, ~50mb, 11.52mb (8x1.44mb), 5.76mb (4x1.44mb) см. <a href=http://bootcd.narod.ru/images.htm>здесь</a>
+    </a>
+    
+    <a name=isolinux>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Можно ли использовать программу ISOLinux совместно с BCDW?</b></font>
+      <tr>
+        <td>Да можно. Для этого сделайте следующее:
+          <ol>
+            <li>Поместите файлы <b>ISOLinux</b> в произвольную папку на компакт-диске (например, <b>/isolinux</b>)
+            <li>Убедитесь, что на компакт-диске нет следующих файлов (если они есть - удалите их):<br>
+                <br>
+                /boot/isolinux/isolinux.cfg<br>
+                /boot/isolinux/linux<br>
+                /isolinux/isolinux.cfg<br>
+                /isolinux/linux<br>
+                /isolinux.cfg<br>
+                <br>
+            <li>Используйте в <b>/BootCat.Ini</b> описания вариантов загрузки подобные этим:<br>
+                <br>
+                /isolinux/isolinux.bin ; Командная строка ISOLinux<br>
+                /isolinux/isolinux.bin ; Linux&nbsp;&nbsp;&nbsp;;; /kernel initrd=/rescue.gz<br>
+                /isolinux/isolinux.bin ; Memdisk ;; /isolinux/memdisk initrd=/fd.img<br>
+          </ol>
+    </a>
+
+    <a name=cdshell>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Можно ли использовать программу CD Shell совместно с BCDW?</b></font>
+      <tr>
+        <td>Да можно. Для этого сделайте следующее:
+          <ol>
+            <li>Поместите файлы <b>CD Shell</b> на компакт-диск в папку <b>/cdsh</b> (обязательно)
+            <li>Убедитесь, что на компакт-диске нет следующих файлов (если они есть - удалите их):<br>
+                <br>
+                /cdsh/cdshell.ini<br>
+                /cdsh/cdsh.csi<br>
+                /cdsh/cdsh.bmp<br>
+                <br>
+            <li>Используйте в <b>/BootCat.Ini</b> описания вариантов загрузки подобные этим:<br>
+                <br>
+                /cdsh/loader.bin ; Командная строка CD Shell<br>
+                /cdsh/loader.bin ; Keyinput sample ;; script /cdsh/samples/keyinput.scr<br>
+                /cdsh/loader.bin ; Variable sample ;; script /cdsh/samples/variable.scr<br>
+          </ol>
+    </a>
+
+    <a name=bootscriptor>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Можно ли использовать программу BootScriptor совместно с BCDW?</b></font>
+      <tr>
+        <td>Да можно. Для этого сделайте следующее:
+          <ol>
+            <li>Поместите файлы <b>BootScriptor</b> на компакт-диск в папку <b>/bscript</b> (обязательно)
+            <li>Убедитесь, что на компакт-диске нет следующих файлов (если они есть - удалите их):<br>
+                <br>
+                /bscript/bscript.ini<br>
+                /bscript/bscript.bsi<br>
+                /bscript/bscript.bmp<br>
+                <br>
+            <li>Используйте в <b>/BootCat.Ini</b> описания вариантов загрузки подобные этим:<br>
+                <br>
+                /bscript/loader.bin ; Командная строка BootScriptor<br>
+                /bscript/loader.bin ; 911 Rescue CD&nbsp;&nbsp;&nbsp;&nbsp;;; script /bscript/911cd.ini<br>
+                /bscript/loader.bin ; Win2K Pro PockeR ;; script /bscript/pocker.ini<br>
+                /bscript/loader.bin ; J.Spitzner's CD&nbsp;&nbsp;;; script /bscript/cdmenue.ini<br>
+          </ol>
+    </a>
+
+    <a name=diskemu>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Можно ли использовать программу diskem1x.bin совместно с BCDW?</b></font>
+      <tr>
+        <td>Да можно. Для этого сделайте следующее:
+          <ol>
+            <li>Поместите файл <b>diskem1x.bin</b> в произвольную папку на компакт-диске (например, в <b>/</b>)
+            <li>Убедитесь, что на компакт-диске нет файла (если он есть - удалите его):<br>
+                <br>
+                /diskemu.cmd<br>
+                <br>
+            <li>Используйте в <b>/BootCat.Ini</b> описания вариантов загрузки подобные этим:<br>
+                <br>
+                /diskem1x.bin ; Командная строка diskem1x.bin<br>
+                /diskem1x.bin ; Sample script ;; batch diskem1x.cmd<br>
+          </ol>
+    </a>
+
+    <a name=bootfix>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>"Press any key to boot from CD..."</b></font>
+      <tr>
+        <td>Если Вы хотите, что бы перед запуском BCDW появлялось приглашение "Press any key to boot from CD...", то перепишите файл <b>bootfix.bin</b> из дистрибутива Microsoft Windows XP/2000 в папку с BCDW.
+    </a>
+
+    <a name=skipcd>
+      <tr bgcolor=#005AEF>
+        <td><font color=#FFFFFF face=Arial>&nbsp;<b>Быстрая отмена загрузки с компакт-диска с BCDW</b></font>
+      <tr>
+        <td>BCDW при запуске проверяет, нажата ли левая клавиша Alt и если она нажата, сразу переходит к загрузке с жесткого диска без вывода каких либо сообщений, заставок и т.п.
+    </a>
+    
+    <tr bgcolor=#005AEF>
+      <td align="right">&nbsp;
+    <tr>
+      <td><small>Copyright (c)2004 by reanimatolog. <a href=http://bootcd.narod.ru/index_r.htm>http://bootcd.narod.ru</a></small>
+  </table>
+</body>
+</html>

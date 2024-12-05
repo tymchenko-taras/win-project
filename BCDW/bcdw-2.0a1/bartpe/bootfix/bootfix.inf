@@ -1,0 +1,12 @@
+[Version]
+Signature= "$Windows NT$"
+
+[PEBuilder]
+Name="Bootable CD Wizard v2.0a1: Enable ""Press any key to boot from CD"""
+Enable=0
+
+[WinntDirectories]
+a="BCDW",2
+
+[SourceDisksFiles]
+bootfix.bin=a

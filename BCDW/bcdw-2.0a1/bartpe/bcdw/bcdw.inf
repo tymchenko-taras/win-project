@@ -1,0 +1,17 @@
+[Version]
+Signature= "$Windows NT$"
+
+[PEBuilder]
+Name="Bootable CD Wizard v2.0a1"
+Enable=1
+
+[WinntDirectories]
+a="BCDW",2
+
+[SourceDisksFiles]
+loader.bin=1,bootfix.bin
+bcdw.bin=a
+license.txt=a
+bcdw_base.ini=a,bcdw.ini
+
+[Append]

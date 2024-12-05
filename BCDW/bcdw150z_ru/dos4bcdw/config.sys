@@ -1,0 +1,37 @@
+[menu]
+menuitem=CD, Start computer with CD-ROM support.
+menuitem=NOCD, Start computer without CD-ROM support.
+menuitem=HELP, View the Help file.
+menudefault=CD,0
+menucolor=7,0
+
+[CD]
+device=himem.sys /testmem:off
+device=oakcdrom.sys /D:mscd001 
+device=btdosm.sys 
+device=flashpt.sys
+device=btcdrom.sys /D:mscd002
+device=aspi2dos.sys
+device=aspi8dos.sys
+device=aspi4dos.sys
+device=aspi8u2.sys
+device=aspicd.sys /D:mscd003
+
+[NOCD]
+device=himem.sys /testmem:off
+
+[HELP]
+device=himem.sys /testmem:off
+
+[COMMON]
+files=10
+buffers=10
+dos=high,umb
+stacks=9,256
+devicehigh=ramdrive.sys /E 2048
+lastdrive=z
+device=display.sys con=(ega,,1)
+country=007,866,country.sys
+install=mode.com con cp prepare=((866) ega3.cpi)
+install=mode.com con cp select=866
+install=keyb.com ru,,keybrd3.sys
