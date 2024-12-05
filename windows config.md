@@ -1,4 +1,4 @@
-** Некоторые тонкие настройки (подходят для Win-7 и Vista) 
+### Некоторые тонкие настройки (подходят для Win-7 и Vista) 
 
 Пуск - Все программы - Стандартные - Командная строка (по правой кнопке "Запуск от имени админа") 
 Дальше, по очереди, копируем отсюда текст команд, вставляем по правой кнопке и жмём Энтер. 
@@ -27,7 +27,7 @@ netsh int tcp set global congestionprovider=ctcp
 Делаем рестарт.  
 
 
-** Prefetch
+### Prefetch
 По умолчанию система кеширует всё что вы делаете, после старта винт долго "шуршит". 
 Это делается для ускорения запуска приложений, кеш постепенно растёт и занимает 
 много места на диске (и в памяти). Сам процесс кеширования занимает память и время, 
@@ -52,7 +52,7 @@ Windows Registry Editor Version 5.00
 После рестарта системы там появится новый кеш. Максимальной скорость загрузки системы 
 будет после нескольких рестартов. 
 
-** SoftwareDistribution
+### SoftwareDistribution
 After updates c:\windows\SoftwareDistribution may take a lot of space. It may be cleaned:
  - Run cmd
  - type net stop wuauserv and press enter
@@ -60,7 +60,7 @@ After updates c:\windows\SoftwareDistribution may take a lot of space. It may be
  - type net start wuauserv and press enter
  - Verify that the new software distribution folder created when you restart the update service is approxiamtely 1.5 MB in size (standard files). Restart the computer and del the folder if you have no issues.
 
-** Windows 10
+### Windows 10
 
 - Not working with cyrilic fonts: Control Panel\Clock and Region\Region\Administarative\Change system locale - select ukrainian fron non unicode programs
 
