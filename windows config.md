@@ -77,3 +77,9 @@ After updates c:\windows\SoftwareDistribution may take a lot of space. It may be
 - Home edition does not have gpedit. To install it run: `gpedit-enabler.bat`
 
 - If computer has predefined key for Home edition it will be installed automatically, you dont have a choise during installation. To add edition selector copy file `ei.cfg` to the flash drive with windows to `sources` folder.
+
+##### CompatTelRunner.exe - microsoft compatibility telemetry - consumes a lot of cpu. The only way to disable it is to rename the file:
+ - %windir%\system32\CompatTelRunner.exe
+ - Gain ownership on the file (Properties -> security tab -> advanced -> owner change, set yourself as owner)
+ - Add permission to modify for the users (select "users" -> edit -> basic permissions-> check modify -> ok)
+ - Rename the CompatTelRunner.exe to CompatTelRunner.exe.off for example
